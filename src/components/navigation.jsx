@@ -129,7 +129,6 @@ const Options = styled.div`
 
   li {
     padding: 2rem 0;
-    opacity: 0.7;
     transition: opacity 0.2s;
 
     .active {
@@ -153,7 +152,6 @@ const Options = styled.div`
     }
     &:last-child {
       padding-bottom: 4rem;
-      opacity: 1;
     }
   }
 
@@ -173,6 +171,7 @@ const Options = styled.div`
       align-items: center;
 
       li {
+        opacity: 0.7;
         &:hover {
           transition: opacity 0.2s;
           opacity: 1;
