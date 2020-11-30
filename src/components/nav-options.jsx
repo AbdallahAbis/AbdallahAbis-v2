@@ -23,31 +23,34 @@ const Options = styled.div`
     transition: max-height 0.3s;
   }
 
-  li {
-    padding: 2rem 0;
-    transition: opacity 0.2s;
+  ul {
+    li {
+      padding: 2rem 0;
+      transition: opacity 0.2s;
 
-    .active {
-      color: var(--color-main);
-    }
+      .active {
+        color: var(--color-main);
+        opacity: 1;
+      }
 
-    button {
-      background-color: var(--color-main);
-      font-family: var(--font-body);
-      font-weight: 700;
-      width: max-content;
-      border-radius: 7px;
-      padding: 1.5rem 3rem;
-      font-size: 1.3rem;
-      line-height: 0.8;
-      letter-spacing: 0.2px;
-    }
+      button {
+        background-color: var(--color-main);
+        font-family: var(--font-body);
+        font-weight: 700;
+        width: max-content;
+        border-radius: 7px;
+        padding: 1.5rem 3rem;
+        font-size: 1.3rem;
+        line-height: 0.8;
+        letter-spacing: 0.2px;
+      }
 
-    &:first-child {
-      padding-top: 4rem;
-    }
-    &:last-child {
-      padding-bottom: 4rem;
+      &:first-child {
+        padding-top: 4rem;
+      }
+      &:last-child {
+        padding-bottom: 4rem;
+      }
     }
   }
 
@@ -67,10 +70,12 @@ const Options = styled.div`
       align-items: center;
 
       li {
-        opacity: 0.7;
-        &:hover {
-          transition: opacity 0.2s;
-          opacity: 1;
+        a {
+          opacity: 0.7;
+          &:hover {
+            transition: opacity 0.2s;
+            opacity: 1;
+          }
         }
 
         &,
@@ -82,7 +87,6 @@ const Options = styled.div`
         &:last-child {
           padding: 0;
           margin-left: 10rem;
-          opacity: 1;
           & {
             button:hover {
               background-color: var(--color-main-lighter);
