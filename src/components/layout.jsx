@@ -15,7 +15,9 @@ ${Fonts}
   --color-primary-lighter: #0F1F31;
   --color-primary-light: #17283A;
   --color-text: #DEDEDE;
-  --color-main: #7BED8D;
+  --color-main: #5de973;
+  --color-main-lighter: #7BED8D;
+  --color-main-darker: #3fe559;
 
   --font-body: 'Eina01', sans-serif;
   /* --font-body: 'Josefin Sans', sans-serif;
@@ -95,7 +97,7 @@ ${Fonts}
   }
 `
 
-const Layout = ({ navigationData, children }) => {
+const Layout = ({ location, navigationData, children }) => {
   return (
     <>
       <Helmet>
@@ -106,7 +108,7 @@ const Layout = ({ navigationData, children }) => {
         />
       </Helmet>
       <GlobalStyle />
-      <Navigation data={navigationData.nav} />
+      <Navigation location={location} data={navigationData.nav} />
       <main>{children}</main>
     </>
   )

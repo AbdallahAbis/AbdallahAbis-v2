@@ -17,6 +17,10 @@ const Nav = styled.nav`
     z-index: 10;
     svg {
       fill: var(--color-main);
+
+      &:hover {
+        fill: var(--color-main-lighter);
+      }
     }
   }
 `
@@ -128,6 +132,10 @@ const Options = styled.div`
     opacity: 0.7;
     transition: opacity 0.2s;
 
+    .active {
+      color: var(--color-main);
+    }
+
     button {
       background-color: var(--color-main);
       font-family: var(--font-body);
@@ -140,17 +148,11 @@ const Options = styled.div`
       letter-spacing: 0.2px;
     }
 
-    &:hover {
-      transition: opacity 0.2s;
-      opacity: 1;
-    }
-
     &:first-child {
       padding-top: 4rem;
     }
     &:last-child {
       padding-bottom: 4rem;
-      opacity: 1;
     }
   }
 
@@ -170,32 +172,48 @@ const Options = styled.div`
       align-items: center;
 
       li {
+        &:hover {
+          transition: opacity 0.2s;
+          opacity: 1;
+        }
+
         &,
         &:first-child,
         &:not(:last-child) {
-          padding: 0 2.5rem;
+          padding: 0;
+          margin: 0 2.5rem;
         }
         &:last-child {
           padding: 0;
-          padding-left: 10rem;
+          margin-left: 10rem;
           opacity: 1;
+
+          & {
+            button:hover {
+              background-color: var(--color-main-lighter);
+            }
+          }
         }
       }
     }
   }
 `
 
-const Navigation = ({ data }) => {
+const Navigation = ({ data, location }) => {
   const [activeStatus, setActiveStatus] = useState(false)
   const [navHeight, setNavHeight] = useState(0)
-  const [outerHeight, setOuterHeight] = useState(0)
+  const [activeNavLink, setActiveNavLink] = useState(0)
   const navRef = useRef(null)
-  const outerRef = useRef(null)
-  const options = data.split("/")
+  let options = []
+  data.split("/").forEach(el => options.push(el.trim().toLowerCase()))
+
   useEffect(() => {
+    const isActive = location.hash.slice(1)
+    const found = options.filter(el => el.toLowerCase() === isActive)
+    setActiveNavLink(found[0] ? found[0] : "home")
+
     setNavHeight(navRef.current.offsetHeight)
-    setOuterHeight(outerRef.current.offsetHeight)
-  }, [setNavHeight])
+  }, [setNavHeight, location])
 
   return (
     <Nav className="container">
@@ -211,22 +229,19 @@ const Navigation = ({ data }) => {
         </div>
       </Hamburger>
 
-      <Options
-        className={activeStatus}
-        elHeight={navHeight && navHeight}
-        ref={outerRef}
-      >
+      <Options className={activeStatus} elHeight={navHeight && navHeight}>
         <ul ref={navRef}>
           {options.map((option, i) => (
             <li key={i}>
               <Link
                 to={
-                  option.trim().toLowerCase() === "home"
+                  option.toLowerCase() === "home"
                     ? "/"
-                    : `/#${option.trim().toLowerCase()}`
+                    : `/#${option.toLowerCase()}`
                 }
+                className={option.toLowerCase() === activeNavLink && "active"}
               >
-                {option.trim().toUpperCase()}
+                {option.toUpperCase()}
               </Link>
             </li>
           ))}

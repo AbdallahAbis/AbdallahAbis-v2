@@ -2,9 +2,14 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   console.log(data)
-  return <Layout navigationData={data.strapi.navigation}></Layout>
+  return (
+    <Layout
+      location={location}
+      navigationData={data.strapi.navigation}
+    ></Layout>
+  )
 }
 
 export default IndexPage
