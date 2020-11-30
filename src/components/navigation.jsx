@@ -153,6 +153,7 @@ const Options = styled.div`
     }
     &:last-child {
       padding-bottom: 4rem;
+      opacity: 1;
     }
   }
 
@@ -186,8 +187,6 @@ const Options = styled.div`
         &:last-child {
           padding: 0;
           margin-left: 10rem;
-          opacity: 1;
-
           & {
             button:hover {
               background-color: var(--color-main-lighter);
