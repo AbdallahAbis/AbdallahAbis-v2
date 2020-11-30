@@ -97,7 +97,7 @@ ${Fonts}
   }
 `
 
-const Layout = ({ location, navigationData, children }) => {
+const Layout = ({ location, children }) => {
   return (
     <>
       <Helmet>
@@ -108,7 +108,7 @@ const Layout = ({ location, navigationData, children }) => {
         />
       </Helmet>
       <GlobalStyle />
-      <Navigation location={location} data={navigationData.nav} />
+      <Navigation location={location} />
       <main>{children}</main>
     </>
   )
