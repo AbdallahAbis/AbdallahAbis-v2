@@ -187,7 +187,6 @@ const Analytics = styled.div`
 
     p {
       font-size: 1.3rem;
-      /* text-transform: uppercase; */
     }
 
     @media ${device.medium} {
@@ -209,7 +208,6 @@ const Analytics = styled.div`
 `
 
 const Header = ({ data }) => {
-  console.log(data)
   let subtitles = []
   data.subtitles.split("/").forEach(el => subtitles.push(el.trim()))
 

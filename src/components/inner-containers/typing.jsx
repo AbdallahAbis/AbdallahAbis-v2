@@ -16,7 +16,6 @@ const Typing = () => {
   useEffect(() => {
     const typeWriter = new Typewriter(typeRef.current, {
       autoStart: true,
-      devMode: true,
       loop: true,
     })
 

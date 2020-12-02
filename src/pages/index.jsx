@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 import Header from "../components/header"
 
 const IndexPage = ({ data, location }) => {
-  console.log()
   return (
     <Layout location={location}>
       <Header data={data.strapi.hero} />

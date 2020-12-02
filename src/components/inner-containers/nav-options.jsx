@@ -1,5 +1,6 @@
 import { graphql, StaticQuery, Link } from "gatsby"
-import React, { useState, useEffect, useRef } from "react"
+import { element } from "prop-types"
+import React, { useState, useEffect, useMemo, useRef, createRef } from "react"
 import styled from "styled-components"
 import device from "../../theme/media"
 
@@ -101,21 +102,44 @@ const Options = styled.div`
   }
 `
 
-const NavigationOptions = ({ data, activeStatus, location }) => {
+const NavigationOptions = ({
+  data,
+  activeStatus,
+  setActiveStatus,
+  location,
+}) => {
   let options = []
   data.split("/").forEach(el => options.push(el.trim().toLowerCase()))
 
   const [navHeight, setNavHeight] = useState(0)
   const [activeNavLink, setActiveNavLink] = useState(0)
   const navRef = useRef(null)
+  const btnRef = useRef(null)
+  const links = useMemo(() => options.map(() => createRef()), [])
 
   useEffect(() => {
-    const isActive = location.hash.slice(1)
-    const found = options.filter(el => el.toLowerCase() === isActive)
-    setActiveNavLink(found[0] ? found[0] : "home")
-
+    const activeHash = location.hash.slice(1)
+    const active = options.filter(el => el.toLowerCase() === activeHash)
+    setActiveNavLink(active[0] ? active[0] : "home")
     setNavHeight(navRef.current.offsetHeight)
   }, [setNavHeight, location, options])
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      const click = e.target
+      const menu = navRef.current
+      const btn = btnRef.current
+      const linkClicked = links.some(el => {
+        return el.current.contains(click)
+      })
+      if (!menu.contains(click) || linkClicked || btn.contains(click))
+        return setActiveStatus(false)
+    }
+    if (activeStatus) document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [activeStatus, setActiveStatus])
 
   return (
     <Options
@@ -134,13 +158,14 @@ const NavigationOptions = ({ data, activeStatus, location }) => {
               className={
                 option.toLowerCase() === activeNavLink ? "active" : undefined
               }
+              ref={links[i]}
             >
               {option.toUpperCase()}
             </Link>
           </li>
         ))}
         <li>
-          <button>Let's Talk</button>
+          <button ref={btnRef}>Let's Talk</button>
         </li>
       </ul>
     </Options>

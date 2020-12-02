@@ -40,7 +40,11 @@ const Navigation = ({ location }) => {
         setActiveStatus={setActiveStatus}
         activeStatus={activeStatus}
       />
-      <NavOptions location={location} activeStatus={activeStatus} />
+      <NavOptions
+        location={location}
+        activeStatus={activeStatus}
+        setActiveStatus={setActiveStatus}
+      />
     </Nav>
   )
 }
