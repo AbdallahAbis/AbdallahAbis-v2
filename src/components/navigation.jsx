@@ -2,8 +2,8 @@ import { Link } from "gatsby"
 import React, { useState } from "react"
 import styled from "styled-components"
 import Logo from "../assets/logo.inline.svg"
-import HamburgerMenu from "./hamburgerMenu"
-import NavOptions from "./nav-options"
+import HamburgerMenu from "./inner-containers/hamburgerMenu"
+import NavOptions from "./inner-containers/nav-options"
 
 const Nav = styled.nav`
   height: var(--nav);
@@ -11,6 +11,8 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   position: relative;
+
+  z-index: 5;
 
   a:first-child {
     height: 3rem;

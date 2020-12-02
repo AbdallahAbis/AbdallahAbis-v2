@@ -19,13 +19,14 @@
     "gatsby-source-graphql": "^2.8.0",
     "gatsby-source-strapi": "^0.0.12",
     "gatsby-transformer-sharp": "^2.6.0",
-    "particles-bg": "^2.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
+    "react-tsparticles": "^1.18.11",
     "styled-components": "^5.2.1",
-    "typed.js": "^2.0.11"
+    "typed.js": "^2.0.11",
+    "typewriter-effect": "^2.17.0"
   },
   "devDependencies": {
     "prettier": "2.1.2"

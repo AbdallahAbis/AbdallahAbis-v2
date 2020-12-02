@@ -1,20 +1,21 @@
 import { graphql, StaticQuery, Link } from "gatsby"
 import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
-import device from "../theme/media"
+import device from "../../theme/media"
 
 const Options = styled.div`
   position: absolute;
   top: var(--nav);
   width: 100%;
   max-height: 0;
-  background-color: var(--color-primary-lighter);
+  background-color: var(--color-primary);
   font-size: 1.1rem;
   font-weight: 700;
   text-align: center;
   overflow: hidden;
   transition: max-height 0.3s;
   display: block;
+  box-shadow: 0px 13px 15px -13px #000;
 
   &.true {
     overflow-y: hidden;
@@ -60,6 +61,7 @@ const Options = styled.div`
     position: static;
     background-color: unset;
     width: min-content;
+    box-shadow: unset;
 
     display: flex;
     justify-content: space-between;
@@ -87,6 +89,7 @@ const Options = styled.div`
         &:last-child {
           padding: 0;
           margin-left: 10rem;
+          margin-right: 0;
           & {
             button:hover {
               background-color: var(--color-main-lighter);

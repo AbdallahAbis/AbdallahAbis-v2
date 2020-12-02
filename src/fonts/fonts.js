@@ -9,6 +9,9 @@ import eina01BoldWoff2 from "./Eina01-Bold.woff2"
 import eina01SemiBoldWoff from "./Eina01-SemiBold.woff"
 import eina01SemiBoldWoff2 from "./Eina01-SemiBold.woff2"
 
+import firaCode from "./FiraCode.woff"
+import firaCode2 from "./FiraCode.woff2"
+
 const Fonts = css`
   @font-face {
     font-family: "Eina01";
@@ -28,6 +31,12 @@ const Fonts = css`
     font-family: "Eina01";
     src: url(${eina01BoldWoff}) format("woff"),
       url(${eina01BoldWoff2}) format("woff2");
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "firaCode";
+    src: url(${firaCode}) format("woff"), url(${firaCode2}) format("woff2");
     font-weight: 700;
     font-style: normal;
   }

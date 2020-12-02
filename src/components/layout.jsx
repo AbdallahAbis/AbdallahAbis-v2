@@ -6,28 +6,33 @@ import { Helmet } from "react-helmet"
 import device from "../theme/media"
 import Navigation from "./navigation"
 import Fonts from "../fonts/fonts"
+import Particles from "react-tsparticles"
 
 const GlobalStyle = createGlobalStyle`
 ${Fonts}
 
   :root{
-  --color-primary: #0B1B2A;
-  --color-primary-lighter: #0F1F31;
-  --color-primary-light: #17283A;
+  --color-primary: #070f17;
+  --color-primary-darker: #050a0f;
+  --color-primary-lighter: #08121b;
+  --color-primary-light: #09141f;
+  --color-primary-vLight: #0d1c2b;
   --color-text: #DEDEDE;
   --color-main: #5de973;
   --color-main-lighter: #7BED8D;
   --color-main-darker: #3fe559;
+  --color-main-dark: #35e450;
+  --color-code: #fbb053;
+
 
   --font-body: 'Eina01', sans-serif;
-  /* --font-body: 'Josefin Sans', sans-serif;
-  --font-code: 'Roboto Mono', monospace; */
+  --font-code: 'firaCode', sans-serif;
 
   --nav: 8rem;
    
   }
 
-  *, *::before, *::after{
+  *, *:before, *:after{
     box-sizing: inherit;
     padding: 0;
     margin: 0;
@@ -95,6 +100,15 @@ ${Fonts}
       max-width: 1921px;
     }
   }
+
+  .tsparticles, #tsparticles{
+    position: fixed;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+  }
 `
 
 const Layout = ({ location, children }) => {
@@ -110,6 +124,82 @@ const Layout = ({ location, children }) => {
       <GlobalStyle />
       <Navigation location={location} />
       <main>{children}</main>
+      <Particles
+        className="tsparticles"
+        options={{
+          fpsLimit: 60,
+          interactivity: {
+            detectsOn: "canvas",
+            events: {
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+              onHover: {
+                enable: true,
+                mode: "repulse",
+              },
+              resize: true,
+            },
+            modes: {
+              bubble: {
+                distance: 400,
+                duration: 2,
+                opacity: 0.8,
+                size: 40,
+              },
+              push: {
+                quantity: 4,
+              },
+              repulse: {
+                distance: 200,
+                duration: 0.4,
+              },
+            },
+          },
+          particles: {
+            color: {
+              value: "#0d1c2b",
+            },
+            links: {
+              color: "#0d1c2b",
+              distance: 150,
+              enable: true,
+              opacity: 0.7,
+              width: 1,
+            },
+            collisions: {
+              enable: true,
+            },
+            move: {
+              direction: "none",
+              enable: true,
+              outMode: "bounce",
+              random: false,
+              speed: 6,
+              straight: false,
+            },
+            number: {
+              density: {
+                enable: true,
+                value_area: 800,
+              },
+              value: 80,
+            },
+            opacity: {
+              value: 0.5,
+            },
+            shape: {
+              type: "circle",
+            },
+            size: {
+              random: true,
+              value: 5,
+            },
+          },
+          detectRetina: true,
+        }}
+      />
     </>
   )
 }

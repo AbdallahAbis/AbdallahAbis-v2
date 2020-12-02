@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import device from "../theme/media"
+import device from "../../theme/media"
 
 const Hamburger = styled.button`
   font: inherit;
