@@ -1,27 +1,15 @@
 import { Link } from "gatsby"
-import React from "react"
-import styled, { keyframes } from "styled-components"
+import React, { useRef } from "react"
+import styled from "styled-components"
 import device from "../theme/media"
-import BG from "../assets/bg.inline.svg"
+import {
+  slideInBottom,
+  slideInLeftBlurred,
+  tiltInBottomRight,
+} from "../utils/animations"
+import CustomButton from "./custom/custom-button"
 import Computer from "./inner-containers/computer"
 
-const move = keyframes`
-0%{
-  right: 4rem;
-}
-50%{
-  right: 2rem;
-}
-100%{
-  right: 4rem;
-}
-`
-const shiny = keyframes`
-  0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
-    80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
-    81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
-    100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
-`
 const Container = styled.div`
   margin-top: 5rem;
 
@@ -64,6 +52,8 @@ const Headline = styled.h1`
   font-size: 3.2rem;
   margin-bottom: 3rem;
   position: relative;
+  animation: ${slideInBottom} 0.5s 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
 
   @media ${device.xSmall} {
     font-size: 2.5rem;
@@ -77,6 +67,7 @@ const Headline = styled.h1`
   @media ${device.large} {
     font-size: 5.5rem;
     width: 85%;
+    animation-delay: 2.7s;
   }
 `
 
@@ -86,6 +77,8 @@ const Description = styled.p`
   font-size: 1.8rem;
   font-weight: 400;
   margin: 0 auto 6rem;
+  animation: ${slideInBottom} 0.5s 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
 
   @media ${device.xSmall} {
     font-size: 1.5rem;
@@ -96,6 +89,7 @@ const Description = styled.p`
   @media ${device.large} {
     max-width: 75%;
     margin-left: 0;
+    animation-delay: 3s;
   }
 `
 
@@ -104,47 +98,23 @@ const ComputerContainer = styled.div`
 
   @media ${device.large} {
     display: block;
+    animation: ${tiltInBottomRight} 0.3s 3.5s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 `
 
-const Button = styled(Link)`
-  background-color: var(--color-main);
-  font-family: var(--font-body);
-  font-weight: 600;
-  width: max-content;
-  border-radius: 5px;
+const Button = styled(CustomButton)`
   padding: 2rem 2.5rem;
   font-size: 1.5rem;
   line-height: 0.8;
-  display: block;
-  letter-spacing: 0.7px;
-  color: var(--color-primary);
-  position: relative;
-  margin: 0 auto;
-  overflow: hidden;
-  color: var(--color-primary);
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  border: none;
-  background: linear-gradient(
-    0deg,
-    var(--color-main) 0%,
-    var(--color-main-darker) 100%
-  );
-
-  &:before {
-    position: absolute;
-    content: "";
-    display: inline-block;
-    top: -180px;
-    left: 0;
-    width: 30px;
-    height: 100%;
-    background-color: #fff;
-    animation: ${shiny} 4s ease-in-out infinite;
-  }
+  animation: ${slideInBottom} 0.5s 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
 
   @media ${device.large} {
     margin: 0;
+    animation-delay: 3.3s;
   }
 `
 const Analytics = styled.div`
@@ -162,12 +132,40 @@ const Analytics = styled.div`
     background-color: var(--color-primary-lighter);
     border-radius: 5px;
 
+    &:nth-child(1) {
+      animation: ${slideInBottom} 0.3s 1.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+
+    &:nth-child(2) {
+      animation: ${slideInBottom} 0.3s 1.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+
+    &:nth-child(3) {
+      animation: ${slideInBottom} 0.3s 1.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+
     &:not(:last-child) {
       margin-bottom: 1rem;
 
       @media ${device.medium} {
         margin-bottom: 0;
         margin-right: 1rem;
+      }
+    }
+    @media ${device.large} {
+      &:nth-child(1) {
+        animation: ${slideInLeftBlurred} 0.3s 0.7s
+          cubic-bezier(0.23, 1, 0.32, 1) both;
+      }
+
+      &:nth-child(2) {
+        animation: ${slideInLeftBlurred} 0.3s 1.1s
+          cubic-bezier(0.23, 1, 0.32, 1) both;
+      }
+
+      &:nth-child(3) {
+        animation: ${slideInLeftBlurred} 0.3s 1.5s
+          cubic-bezier(0.23, 1, 0.32, 1) both;
       }
     }
 

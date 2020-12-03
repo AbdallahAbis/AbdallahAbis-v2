@@ -1,8 +1,9 @@
-import { graphql, StaticQuery, Link } from "gatsby"
-import { element } from "prop-types"
-import React, { useState, useEffect, useMemo, useRef, createRef } from "react"
+import { graphql, Link, StaticQuery } from "gatsby"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import device from "../../theme/media"
+import { bounceInTop, flicker } from "../../utils/animations"
+import CustomButton from "../custom/custom-button"
 
 const Options = styled.div`
   position: absolute;
@@ -35,23 +36,28 @@ const Options = styled.div`
         opacity: 1;
       }
 
-      button {
-        background-color: var(--color-main);
-        font-family: var(--font-body);
-        font-weight: 700;
-        width: max-content;
-        border-radius: 7px;
-        padding: 1.5rem 3rem;
-        font-size: 1.3rem;
-        line-height: 0.8;
-        letter-spacing: 0.2px;
-      }
-
       &:first-child {
         padding-top: 4rem;
       }
       &:last-child {
         padding-bottom: 4rem;
+      }
+      @media ${device.large} {
+        &:nth-child(1) {
+          animation: ${bounceInTop} 3s ease-out both;
+        }
+        &:nth-child(2) {
+          animation: ${bounceInTop} 3s ease-out 0.1s both;
+        }
+        &:nth-child(3) {
+          animation: ${bounceInTop} 3s ease-out 0.2s both;
+        }
+        &:nth-child(4) {
+          animation: ${bounceInTop} 3s ease-out 0.3s both;
+        }
+        &:nth-child(5) {
+          animation: ${bounceInTop} 3s ease-out 0.4s both;
+        }
       }
     }
   }
@@ -102,6 +108,11 @@ const Options = styled.div`
   }
 `
 
+const Button = styled(CustomButton)`
+  @media ${device.large} {
+    animation: ${flicker} 2s 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+`
 const NavigationOptions = ({
   data,
   activeStatus,
@@ -115,7 +126,7 @@ const NavigationOptions = ({
   const [activeNavLink, setActiveNavLink] = useState(0)
   const navRef = useRef(null)
   const btnRef = useRef(null)
-  const links = useMemo(() => options.map(() => createRef()), [])
+  const linksRef = useRef([])
 
   useEffect(() => {
     const activeHash = location.hash.slice(1)
@@ -129,9 +140,8 @@ const NavigationOptions = ({
       const click = e.target
       const menu = navRef.current
       const btn = btnRef.current
-      const linkClicked = links.some(el => {
-        return el.current.contains(click)
-      })
+      const linkClicked = linksRef.current.some(el => el.contains(click))
+
       if (!menu.contains(click) || linkClicked || btn.contains(click))
         return setActiveStatus(false)
     }
@@ -139,7 +149,7 @@ const NavigationOptions = ({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [activeStatus, setActiveStatus])
+  })
 
   return (
     <Options
@@ -158,14 +168,16 @@ const NavigationOptions = ({
               className={
                 option.toLowerCase() === activeNavLink ? "active" : undefined
               }
-              ref={links[i]}
+              ref={element => linksRef.current.push(element)}
             >
               {option.toUpperCase()}
             </Link>
           </li>
         ))}
         <li>
-          <button ref={btnRef}>Let's Talk</button>
+          <Button to="/#" ref={btnRef}>
+            Let's Talk
+          </Button>
         </li>
       </ul>
     </Options>

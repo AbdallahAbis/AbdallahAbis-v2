@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import React, { useState } from "react"
 import styled from "styled-components"
 import Logo from "../assets/logo.inline.svg"
+import { rollInLeft, rollInRight } from "../utils/animations"
 import HamburgerMenu from "./inner-containers/hamburgerMenu"
 import NavOptions from "./inner-containers/nav-options"
 
@@ -11,21 +12,26 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   position: relative;
-
   z-index: 5;
+`
 
-  a:first-child {
-    height: 3rem;
-    width: 3rem;
-    z-index: 10;
-    svg {
-      fill: var(--color-main);
+const LogoContainer = styled(Link)`
+  height: 3rem;
+  width: 3rem;
+  z-index: 10;
+  animation: ${rollInLeft} 0.6s ease-out both;
 
-      &:hover {
-        fill: var(--color-main-lighter);
-      }
+  svg {
+    fill: var(--color-main);
+
+    &:hover {
+      fill: var(--color-main-lighter);
     }
   }
+`
+
+const AnimatedHamburgerMenu = styled(HamburgerMenu)`
+  animation: ${rollInRight} 0.6s ease-out both;
 `
 
 const Navigation = ({ location }) => {
@@ -33,10 +39,10 @@ const Navigation = ({ location }) => {
 
   return (
     <Nav className="container">
-      <Link to="/">
+      <LogoContainer to="/">
         <Logo />
-      </Link>
-      <HamburgerMenu
+      </LogoContainer>
+      <AnimatedHamburgerMenu
         setActiveStatus={setActiveStatus}
         activeStatus={activeStatus}
       />

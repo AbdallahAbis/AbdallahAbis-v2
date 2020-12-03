@@ -86,11 +86,12 @@ const Hamburger = styled.button`
   }
 `
 
-const HamburgerMenu = ({ setActiveStatus, activeStatus }) => {
+const HamburgerMenu = ({ setActiveStatus, activeStatus, ...props }) => {
   return (
     <Hamburger
       onClick={e => setActiveStatus(!activeStatus)}
       className={activeStatus.toString()}
+      {...props}
     >
       <div className="hamburger-box">
         <div className="hamburger-inner"></div>

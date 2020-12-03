@@ -24,6 +24,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-tsparticles": "^1.18.11",
+    "sal.js": "^0.8.1",
     "styled-components": "^5.2.1",
     "typed.js": "^2.0.11",
     "typewriter-effect": "^2.17.0"

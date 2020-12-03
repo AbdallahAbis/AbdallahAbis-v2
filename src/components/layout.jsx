@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import { createGlobalStyle } from "styled-components"
 import { Helmet } from "react-helmet"
@@ -7,6 +7,8 @@ import device from "../theme/media"
 import Navigation from "./navigation"
 import Fonts from "../fonts/fonts"
 import Particles from "react-tsparticles"
+import sal from "sal.js"
+import "sal.js/dist/sal.css"
 
 const GlobalStyle = createGlobalStyle`
 ${Fonts}
@@ -112,6 +114,9 @@ ${Fonts}
 `
 
 const Layout = ({ location, children }) => {
+  useEffect(() => {
+    sal()
+  })
   return (
     <>
       <Helmet>
