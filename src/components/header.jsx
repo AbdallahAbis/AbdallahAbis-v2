@@ -98,7 +98,7 @@ const ComputerContainer = styled.div`
 
   @media ${device.large} {
     display: block;
-    animation: ${tiltInBottomRight} 0.3s 3.5s
+    animation: ${tiltInBottomRight} 0.4s 3.3s
       cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 `
@@ -154,18 +154,18 @@ const Analytics = styled.div`
     }
     @media ${device.large} {
       &:nth-child(1) {
-        animation: ${slideInLeftBlurred} 0.3s 0.7s
+        animation: ${slideInLeftBlurred} 0.3s 3.4s
           cubic-bezier(0.23, 1, 0.32, 1) both;
       }
 
       &:nth-child(2) {
-        animation: ${slideInLeftBlurred} 0.3s 1.1s
+        animation: ${slideInLeftBlurred} 0.3s 3.2s
           cubic-bezier(0.23, 1, 0.32, 1) both;
       }
 
       &:nth-child(3) {
-        animation: ${slideInLeftBlurred} 0.3s 1.5s
-          cubic-bezier(0.23, 1, 0.32, 1) both;
+        animation: ${slideInLeftBlurred} 0.3s 3s cubic-bezier(0.23, 1, 0.32, 1)
+          both;
       }
     }
 
