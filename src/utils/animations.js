@@ -195,8 +195,11 @@ export const squeeze = keyframes`
   55% {
     transform:  translateZ(0) scaleY(1);
   }
+  80% {
+    transform:  translateZ(0) scaleY(0.4);
+  }
   90% {
-    transform:  translateZ(0) scaleY(0.5);
+    transform:  translateZ(0) scaleY(1.3);
   }
   100% {
     transform:  translateZ(0) scaleY(1);
