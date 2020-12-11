@@ -21,7 +21,7 @@ const Typing = () => {
 
     typeWriter
       .start()
-      .pauseFor(300)
+      .pauseFor(3500)
       .typeString("Hi there,<br/>")
       .pauseFor(500)
       .typeString("I'm Abdallah.<br/>")

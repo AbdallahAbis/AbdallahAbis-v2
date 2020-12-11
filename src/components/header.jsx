@@ -1,20 +1,23 @@
-import { Link } from "gatsby"
-import React, { useRef } from "react"
+import React from "react"
 import styled from "styled-components"
 import device from "../theme/media"
 import {
+  bubblesBottom,
+  bubblesTop,
   slideInBottom,
   slideInLeftBlurred,
+  squeeze,
   tiltInBottomRight,
 } from "../utils/animations"
 import CustomButton from "./custom/custom-button"
 import Computer from "./inner-containers/computer"
 
 const Container = styled.div`
-  margin-top: 5rem;
+  padding-top: 5rem;
+  min-height: calc(100vh - var(--nav));
 
   @media ${device.xSmall} {
-    margin-top: 3rem;
+    padding-top: 3rem;
   }
 
   @media ${device.medium} {
@@ -46,7 +49,6 @@ const ContentContainer = styled.div`
     margin-top: 8rem;
   }
 `
-
 const Headline = styled.h1`
   line-height: 1.32;
   font-size: 3.2rem;
@@ -54,7 +56,43 @@ const Headline = styled.h1`
   position: relative;
   animation: ${slideInBottom} 0.5s 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both;
+  word-wrap: anywhere;
 
+  @media (hover: hover) {
+    span {
+      display: inline-block;
+      span {
+        display: inline-block;
+        height: 56px;
+        line-height: 56px;
+
+        &:hover span {
+          display: inline-block;
+          word-break: keep-all;
+          color: var(--color-main);
+          animation: ${squeeze} 0.4s;
+          transition: color 0.3s;
+        }
+
+        span {
+          display: inline-block;
+          height: 57px;
+          line-height: 57px;
+          cursor: default;
+          z-index: -10;
+        }
+      }
+    }
+  }
+
+  & span:last-child {
+    span:last-child {
+      span:last-child {
+        animation: unset;
+        color: var(--color-main);
+      }
+    }
+  }
   @media ${device.xSmall} {
     font-size: 2.5rem;
     margin-bottom: 2rem;
@@ -70,11 +108,11 @@ const Headline = styled.h1`
     animation-delay: 2.7s;
   }
 `
-
 const Description = styled.p`
   opacity: 0.9;
-  line-height: 1.55;
-  font-size: 1.8rem;
+  line-height: 1.65;
+  font-size: 1.7rem;
+  letter-spacing: 0.3px;
   font-weight: 400;
   margin: 0 auto 6rem;
   animation: ${slideInBottom} 0.5s 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -92,7 +130,6 @@ const Description = styled.p`
     animation-delay: 3s;
   }
 `
-
 const ComputerContainer = styled.div`
   display: none;
 
@@ -102,7 +139,6 @@ const ComputerContainer = styled.div`
       cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 `
-
 const Button = styled(CustomButton)`
   padding: 2rem 2.5rem;
   font-size: 1.5rem;
@@ -112,6 +148,101 @@ const Button = styled(CustomButton)`
   animation: ${slideInBottom} 0.5s 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both;
 
+  @media (hover: hover) {
+    overflow: visible;
+
+    .before,
+    .after {
+      position: absolute;
+      display: block;
+      width: 140%;
+      height: 100%;
+      left: -20%;
+      z-index: -1000;
+      transition: all ease-in-out 0.5s;
+      background-repeat: no-repeat;
+    }
+
+    .before {
+      display: none;
+      top: -75%;
+      background-image: radial-gradient(
+          circle,
+          var(--color-main-darker) 20%,
+          transparent 20%
+        ),
+        radial-gradient(
+          circle,
+          transparent 20%,
+          var(--color-main-darker) 20%,
+          transparent 30%
+        ),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%),
+        radial-gradient(
+          circle,
+          transparent 10%,
+          var(--color-main-darker) 15%,
+          transparent 20%
+        ),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%);
+      background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%,
+        15% 15%, 10% 10%, 18% 18%;
+    }
+    .after {
+      display: none;
+      bottom: -75%;
+      background-image: radial-gradient(
+          circle,
+          var(--color-main-darker) 20%,
+          transparent 20%
+        ),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%),
+        radial-gradient(
+          circle,
+          transparent 10%,
+          var(--color-main-darker) 15%,
+          transparent 20%
+        ),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%),
+        radial-gradient(circle, var(--color-main-darker) 20%, transparent 20%);
+      background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%,
+        20% 20%;
+    }
+
+    &:before {
+      display: none;
+      animation: none;
+    }
+
+    .before:hover,
+    .after:hover {
+      height: 0px;
+    }
+    &:hover {
+      background-color: var(--color-main-darker);
+      &:after {
+        animation: none;
+        transform: none;
+      }
+      .before,
+      .after {
+        display: block;
+        cursor: default;
+      }
+      .before {
+        animation: ${bubblesTop} ease-in-out 0.75s forwards;
+      }
+      .after {
+        animation: ${bubblesBottom} ease-in-out 0.75s forwards;
+      }
+    }
+  }
   @media ${device.large} {
     margin: 0;
     animation-delay: 3.3s;
@@ -121,7 +252,7 @@ const Analytics = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 6rem auto;
+  margin: 6rem auto 2rem auto;
 
   div {
     padding: 2rem 0;
@@ -201,7 +332,8 @@ const Analytics = styled.div`
   }
   @media ${device.large} {
     grid-column: 1 / span 2;
-    margin-top: 7rem;
+    align-self: end;
+    margin: 0 auto 2rem auto;
   }
 `
 
@@ -209,11 +341,25 @@ const Header = ({ data }) => {
   let subtitles = []
   data.subtitles.split("/").forEach(el => subtitles.push(el.trim()))
 
+  const headline =
+    "Success is the sum of small efforts, repeated day in and day out."
+
+  const words = headline.split(" ")
+
   return (
     <Container className="container">
       <ContentContainer>
-        <Headline data-text="Success is the sum of small efforts, repeated day in and day out.">
-          Success is the sum of small efforts, repeated day in and day out.
+        <Headline aria-label={headline}>
+          {words.map((word, i) => (
+            <span key={i}>
+              {word.split("").map((char, i) => (
+                <span key={i}>
+                  <span>{char}</span>
+                </span>
+              ))}
+              &nbsp;
+            </span>
+          ))}
         </Headline>
         <Description>
           I'm a front-end web developer, currently freelancing full-time on
@@ -221,7 +367,10 @@ const Header = ({ data }) => {
           you can always check my past client’s feedback in the testimonials
           section to make sure you are in good hands.
         </Description>
-        <Button to="/#testimonials">Testimonials</Button>
+        <Button to="/#testimonials">
+          <span className="before"></span> Testimonials
+          <span className="after"></span>
+        </Button>
       </ContentContainer>
 
       <ComputerContainer>
