@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 
 import { createGlobalStyle } from "styled-components"
 import { Helmet } from "react-helmet"
@@ -9,6 +9,7 @@ import Fonts from "../fonts/fonts"
 import Particles from "react-tsparticles"
 import sal from "sal.js"
 import "sal.js/dist/sal.css"
+import Loader from "./loader"
 
 const GlobalStyle = createGlobalStyle`
 ${Fonts}
@@ -20,11 +21,10 @@ ${Fonts}
   --color-primary-light: #09141f;
   --color-primary-vLight: #0d1c2b;
   --color-text: #DEDEDE;
-  --color-main: #5de973;
-  --color-main-lighter: #7BED8D;
-  --color-main-darker: #3fe559;
-  --color-main-dark: #35e450;
-  --color-code: #fbb053;
+  --color-main: #1cd439;
+  --color-main-lighter: #27e245;
+  --color-main-darker: #19bd33;
+  --color-main-dark: #16a72d;
 
 
   --font-body: 'Eina01', sans-serif;
@@ -43,6 +43,8 @@ ${Fonts}
   html{
     font-size: 62.5%;
     box-sizing: border-box;
+    overflow-y: hidden;
+
   }
 
   body {
@@ -53,6 +55,8 @@ ${Fonts}
     font-weight: 400;
     line-height: 0.8;
     padding: 0 2.5rem;
+    overflow-y: inherit;
+
   }
 
   input,
@@ -114,8 +118,14 @@ ${Fonts}
 `
 
 const Layout = ({ location, children }) => {
+  const [loaded, setLoaded] = useState(false)
   useEffect(() => {
     sal()
+    setTimeout(() => {
+      setLoaded(true)
+    }, 3000)
+
+    console.log(loaded)
   })
   return (
     <>
@@ -127,84 +137,91 @@ const Layout = ({ location, children }) => {
         />
       </Helmet>
       <GlobalStyle />
-      <Navigation location={location} />
-      <main>{children}</main>
-      <Particles
-        className="tsparticles"
-        options={{
-          fpsLimit: 60,
-          interactivity: {
-            detectsOn: "canvas",
-            events: {
-              onClick: {
-                enable: true,
-                mode: "push",
+
+      {!loaded ? (
+        <Loader />
+      ) : (
+        <>
+          <Navigation location={location} />
+          <main>{children}</main>
+          <Particles
+            className="tsparticles"
+            options={{
+              fpsLimit: 60,
+              interactivity: {
+                detectsOn: "canvas",
+                events: {
+                  onClick: {
+                    enable: true,
+                    mode: "push",
+                  },
+                  onHover: {
+                    enable: true,
+                    mode: "repulse",
+                  },
+                  resize: true,
+                },
+                modes: {
+                  bubble: {
+                    distance: 400,
+                    duration: 2,
+                    opacity: 0.8,
+                    size: 40,
+                  },
+                  push: {
+                    quantity: 4,
+                  },
+                  repulse: {
+                    distance: 200,
+                    duration: 0.4,
+                  },
+                },
               },
-              onHover: {
-                enable: true,
-                mode: "repulse",
+              particles: {
+                color: {
+                  value: "#0d1c2b",
+                },
+                links: {
+                  color: "#0d1c2b",
+                  distance: 150,
+                  enable: true,
+                  opacity: 0.7,
+                  width: 1,
+                },
+                collisions: {
+                  enable: true,
+                },
+                move: {
+                  direction: "none",
+                  enable: true,
+                  outMode: "bounce",
+                  random: false,
+                  speed: 6,
+                  straight: false,
+                },
+                number: {
+                  density: {
+                    enable: true,
+                    value_area: 800,
+                  },
+                  value: 80,
+                },
+                opacity: {
+                  value: 0.5,
+                },
+                shape: {
+                  type: "circle",
+                },
+                size: {
+                  random: true,
+                  value: 5,
+                },
               },
-              resize: true,
-            },
-            modes: {
-              bubble: {
-                distance: 400,
-                duration: 2,
-                opacity: 0.8,
-                size: 40,
-              },
-              push: {
-                quantity: 4,
-              },
-              repulse: {
-                distance: 200,
-                duration: 0.4,
-              },
-            },
-          },
-          particles: {
-            color: {
-              value: "#0d1c2b",
-            },
-            links: {
-              color: "#0d1c2b",
-              distance: 150,
-              enable: true,
-              opacity: 0.7,
-              width: 1,
-            },
-            collisions: {
-              enable: true,
-            },
-            move: {
-              direction: "none",
-              enable: true,
-              outMode: "bounce",
-              random: false,
-              speed: 6,
-              straight: false,
-            },
-            number: {
-              density: {
-                enable: true,
-                value_area: 800,
-              },
-              value: 80,
-            },
-            opacity: {
-              value: 0.5,
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              random: true,
-              value: 5,
-            },
-          },
-          detectRetina: true,
-        }}
-      />
+              detectRetina: true,
+            }}
+          />
+        </>
+      )}
     </>
   )
 }

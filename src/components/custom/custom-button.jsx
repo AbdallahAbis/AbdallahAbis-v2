@@ -20,11 +20,7 @@ const Button = styled(Link)`
   overflow: hidden;
   color: var(--color-primary);
   border: none;
-  background: linear-gradient(
-    0deg,
-    var(--color-main) 0%,
-    var(--color-main-darker) 100%
-  );
+  background: var(--color-main);
   transition: transform ease-in 0.2s;
 
   &:active {
@@ -43,23 +39,18 @@ const Button = styled(Link)`
     animation: ${shiny} 4s ease-in-out infinite;
   }
 
+  &:after {
+    position: absolute;
+    content: " ";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-main);
+    transition: transform 0.5s ease;
+  }
   @media (hover: hover) {
-    &:after {
-      position: absolute;
-      content: " ";
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        0deg,
-        var(--color-main) 0%,
-        var(--color-main-darker) 100%
-      );
-      transition: transform 0.5s ease;
-    }
-
     &:hover:after {
       transform: scale(2) rotate(180deg);
     }
