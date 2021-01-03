@@ -1,15 +1,30 @@
 {
-  "name": "abis-abdallah",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "10.0.3",
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
-  }
+	"name": "abis-abdallah",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev ",
+		"build": "next build",
+		"start": "next start",
+		"ngrok": "ngrok http 3000"
+	},
+	"dependencies": {
+		"gray-matter": "^4.0.2",
+		"next": "10.0.3",
+		"react": "17.0.1",
+		"react-dom": "17.0.1",
+		"react-tsparticles": "^1.18.11",
+		"remark": "^13.0.0",
+		"remark-html": "^13.0.1",
+		"sal.js": "^0.8.2",
+		"sass": "^1.30.0",
+		"styled-components": "^5.2.1",
+		"typewriter-effect": "^2.17.0"
+	},
+	"devDependencies": {
+		"@svgr/webpack": "^5.5.0",
+		"babel-plugin-inline-react-svg": "^1.1.2",
+		"babel-plugin-styled-components": "^1.12.0",
+		"ngrok": "^3.4.0"
+	}
 }
