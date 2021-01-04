@@ -205,7 +205,7 @@ const Layout = ({ children, data }) => {
 			) : (
 				// .container is responsible of Websites X-Axis Padding, .innerContainer is responsible of the max-width of the website
 				<>
-					<Navigation data={data} />
+					{data ? <Navigation data={data} /> : null}
 					<main className='container'>
 						<div className='innerContainer'>{children}</div>
 					</main>
