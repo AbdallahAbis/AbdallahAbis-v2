@@ -24,10 +24,10 @@ export default class MyDocument extends Document {
 	render() {
 		return (
 			<Html>
-				<Head>{this.props.styleTags}</Head>
+				<Head crossOrigin='anonymous'>{this.props.styleTags}</Head>
 				<body>
 					<Main />
-					<NextScript />
+					<NextScript crossOrigin='anonymous' />
 				</body>
 			</Html>
 		);
