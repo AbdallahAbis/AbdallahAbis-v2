@@ -92,7 +92,6 @@ const Author = styled.div`
 `;
 
 const Blog = () => {
-	useEffect(() => {}, []);
 	return (
 		<Container id='blog'>
 			<Title>I Also Blog.</Title>

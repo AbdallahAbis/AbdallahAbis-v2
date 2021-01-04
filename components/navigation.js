@@ -57,29 +57,35 @@ const Navigation = ({ data }) => {
 	);
 
 	// this className is responsible for showing/hiding the navBar when scrolling
-	const [classNameOnScroll, setClassNameOnScroll] = useState('');
+
+	//
+	const [prevScrollPos, setPrevScrollPos] = useState(0);
+	const [visibleNav, setVisibleNav] = useState('');
+
+	const handleScroll = () => {
+		// find current scroll position
+		const currentScrollPos = window.pageYOffset;
+
+		// set state based on location info (explained in more detail below)
+		currentScrollPos > 80 && currentScrollPos > prevScrollPos
+			? setVisibleNav('hide')
+			: currentScrollPos < prevScrollPos && currentScrollPos > 50
+			? setVisibleNav('show')
+			: setVisibleNav();
+
+		// set state to new scroll position
+		setPrevScrollPos(currentScrollPos);
+	};
 
 	useEffect(() => {
-		let lastScroll = 0;
-		const scrollCallBack = window.addEventListener('scroll', () => {
-			const currentScroll = window.pageYOffset;
-
-			currentScroll > 80 && currentScroll > lastScroll
-				? setClassNameOnScroll('hide')
-				: currentScroll < lastScroll && currentScroll > 50
-				? setClassNameOnScroll('show')
-				: setClassNameOnScroll('');
-
-			lastScroll = currentScroll;
-
-			return () => {
-				window.removeEventListener('scroll', scrollCallBack);
-			};
-		});
-	}, []);
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	});
 
 	return (
-		<Container className={`${classNameOnScroll} container`}>
+		<Container className={`${visibleNav} container`}>
 			<div className='innerContainer'>
 				<Link href='/'>
 					<LogoContainer>

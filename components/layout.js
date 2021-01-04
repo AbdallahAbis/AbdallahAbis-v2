@@ -168,7 +168,7 @@ const Layout = ({ children, data }) => {
 
 	useEffect(() => {
 		// Scroll to top when reloaded
-		location.push('/');
+		location.push(location.pathname === '/' ? '/' : location.pathname);
 		window.scrollTo(0, 0);
 
 		// Executing The Func That is responsible of Detecting in View Elements
@@ -190,7 +190,7 @@ const Layout = ({ children, data }) => {
 				: `${location.route.slice(1).charAt(0).toUpperCase()}${asPath.slice(
 						2
 				  )}`;
-		changeTitle(setPath); // Capitalizing first letter of the section's id (about => About)
+		return changeTitle(setPath); // Capitalizing first letter of the section's id (about => About)
 	}, [asPath]);
 
 	return (
