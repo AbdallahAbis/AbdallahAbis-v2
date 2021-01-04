@@ -1,18 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <a href="https://abisabdallah.com">
+    <img alt="Abis" src="./public/brand/logo.png" width="60" />
+  </a>
+</p>
+<h1 align="center">
+Abdallah Abis</h1>
 
-## Getting Started
+<br />
+<br />
 
-First, run the development server:
+![demo](./public/brand/demo.png)
 
-```bash
-npm run dev
-# or
-yarn dev
+<br />
+
+<p>This Portfolio was designed and developed by <a href='https://twitter.com/Dev_abis' target="_blank">Abdallah Abis</a> using <a href='https://nextjs.org/' target="_blank">Next.js</a> and hosted on <a href='https://vercel.com//' target="_blank">Vercel</a>.<strong> I hope you like it.</strong></p>
+
+<br />
+<br />
+
+🔐
+
+## 💥 FORK IT, BUT PLEASE MENTION ME:exclamation:
+
+🔐
+
+<br />
+<br />
+
+## 🛠 Installation & Set Up
+
+1.  Check the folder structure on start-here.md
+
+2.  Fork and/or clone this repo.
+
+    ```sh
+    git clone "github repo"
+    ```
+
+3.  Install dependencies
+
+    ```sh
+    yarn
+    ```
+
+4.  Start the development server
+
+         ```sh
+         yarn dev
+         ```
+
+5.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 🚀 Building and Running for Production
+
+Generate a full static production build
+
+```sh
+yarn build
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
 ## Learn More
 

@@ -169,7 +169,6 @@ const ObjectContainer = styled.div`
 // Styles End
 
 const About = ({ data: { skills, image, contentHtml } }) => {
-	console.log(image);
 	return (
 		<Container id='about'>
 			<InnerContainer>

@@ -5,8 +5,7 @@
 	"scripts": {
 		"dev": "next dev ",
 		"build": "next build",
-		"start": "next start",
-		"ngrok": "ngrok http 3000"
+		"start": "next start"
 	},
 	"dependencies": {
 		"gray-matter": "^4.0.2",
@@ -24,7 +23,6 @@
 	"devDependencies": {
 		"@svgr/webpack": "^5.5.0",
 		"babel-plugin-inline-react-svg": "^1.1.2",
-		"babel-plugin-styled-components": "^1.12.0",
-		"ngrok": "^3.4.0"
+		"babel-plugin-styled-components": "^1.12.0"
 	}
 }

@@ -155,8 +155,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Layout = ({ children, data }) => {
-	const router = useRouter();
-	const { asPath } = router;
+	const location = useRouter();
+	const { asPath } = location;
 	const [loaded, setLoaded] = useState(true);
 	const [sectionForTitle, setSectionForTitle] = useState('Front-end Web Dev');
 
@@ -167,6 +167,10 @@ const Layout = ({ children, data }) => {
 	};
 
 	useEffect(() => {
+		// Scroll to top when reloaded
+		location.push('/');
+		window.scrollTo(0, 0);
+
 		// Executing The Func That is responsible of Detecting in View Elements
 		AnimateInView();
 
@@ -174,11 +178,19 @@ const Layout = ({ children, data }) => {
 		setTimeout(() => {
 			setLoaded(true);
 		}, 2700);
-	});
+	}, []);
 
 	// Calling this after the site is loaded and every time the URL is Changes
 	useEffect(() => {
-		changeTitle(`${asPath.slice(2).charAt(0).toUpperCase()}${asPath.slice(3)}`); // Capitalizing first letter of the section's id (about => About)
+		const setPath =
+			location.route === '/'
+				? `${location.asPath.slice(2).charAt(0).toUpperCase()}${asPath.slice(
+						3
+				  )}`
+				: `${location.route.slice(1).charAt(0).toUpperCase()}${asPath.slice(
+						2
+				  )}`;
+		changeTitle(setPath); // Capitalizing first letter of the section's id (about => About)
 	}, [asPath]);
 
 	return (

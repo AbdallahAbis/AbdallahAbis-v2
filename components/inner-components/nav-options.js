@@ -114,6 +114,7 @@ const Button = styled(CustomButton)`
 		animation: ${flicker} 2s 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 `;
+
 const NavOptions = ({
 	hamburgerMenuActiveStatus,
 	setHamburgerMenuActiveStatus,
@@ -125,7 +126,10 @@ const NavOptions = ({
 	const location = useRouter();
 
 	useEffect(() => {
-		const activeHash = location.asPath.slice(2);
+		const activeHash =
+			location.route === '/'
+				? location.asPath.slice(2)
+				: location.route.slice(1);
 		const active = options.filter((el) => el.toLowerCase() === activeHash);
 		setActiveNavLink(active[0] ? active[0] : 'home');
 		setNavHeight(navRef.current.offsetHeight);
