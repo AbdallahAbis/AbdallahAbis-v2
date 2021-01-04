@@ -3,24 +3,24 @@ root                                => the root of the project/repo
 ├── components                      => includes all the building blocks of the website
 │   ├── custom                      => includes all the custom components that are being used by other components in different ways.
 │   │   ├── button.js
-│   │   ├── headline.js
-│   │   └── paragraph.js
+│   │   ├── headline.js             => H1 Heading
+│   │   └── paragraph.js            => long paragraphs.
 │   ├── inner-components            => includes all the components that are inserted inside other components.
-│   │   ├── computer.js
+│   │   ├── computer.js             => The laptop component shown in the header
 │   │   ├── hamburgerMenu.js
-│   │   ├── nav-options.js
-│   │   └── typing.js
-│   ├── about.js
-│   ├── analytics.js
-│   ├── blog.js
-│   ├── contact.js
-│   ├── footer.js
-│   ├── header.js
-│   ├── layout.js
-│   ├── loader.js
-│   ├── navigation.js
-│   ├── testimonials.js
-│   └── work.js
+│   │   ├── nav-options.js          => Navigation options only.
+│   │   └── typing.js               => the typing effect on laptop component.
+│   ├── about.js                    => the about section
+│   ├── analytics.js                => the analytics section
+│   ├── blog.js                     => the blog section
+│   ├── contact.js                  => the contact section
+│   ├── footer.js                   => the footer section
+│   ├── header.js                   => the header section
+│   ├── layout.js                   => Layout which is a component that wraps all sections.
+│   ├── loader.js                   => the loader
+│   ├── navigation.js               => the navigation
+│   ├── testimonials.js             => the testimonials
+│   └── work.js                     => the work section
 ├── content                         => includes all the content of the website for easy update.
 │   ├── about
 │   │   └── about.md
@@ -35,16 +35,15 @@ root                                => the root of the project/repo
 │   └── work
 │   │   └── work.md
 ├── lib                             => includes functions that are acting like libraries.
-│   ├── queryMarkdown.js
-│   ├── animation.js
-│   ├── carousel.js
-│   ├── isInView.js
-│   └── useDeviceDetect.js
+│   ├── queryMarkdown.js            => this queries all the markdown files in the content folder.
+│   ├── animation.js                => this has all the CSS animations that the website uses.
+│   ├── carousel.js                 => this is responsible for the carousels on the website
+│   └── isInView.js                 => this checks if a given element is in the view port
 ├── pages                           => includes all pages that structure the website.
-│   ├── _app.js
-│   ├── _document.js
-│   ├── blog.js
-│   └── index.js
+│   ├── _app.js                     => Next.js App component to initialize pages.
+│   ├── _document.js                => This custom Component is used to inject things that are the same for all pages in the head.
+│   ├── blog.js                     => Blog Page
+│   └── index.js                    => Home Page
 ├── public                          => includes all assets and fonts.
 │   ├── brand
 │   ├── fonts
@@ -57,7 +56,7 @@ root                                => the root of the project/repo
 ├── theme                           => includes all theme related things.
 │   └── media.js
 ├── .gitignore
-├── babel.config.json
+├── babel.config.json               => custom babel config that takes care of SVG's and Styled-Components.
 ├── package.json
 ├── start-here.md                   => You are here.
 ├── README.md
