@@ -5,8 +5,8 @@ import OpenQuote from '../public/icons/quote.svg';
 import Star from '../public/icons/star.svg';
 import Upwork from '../public/icons/upwork.svg';
 import device from '../theme/media';
-import { slideInBottom } from '../utils/animations';
-import carousel from '../utils/carousel';
+import { slideInBottom } from '../lib/animations';
+import carousel from '../lib/carousel';
 import Headline from './custom/headline';
 
 // Styles Start

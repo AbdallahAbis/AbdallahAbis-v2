@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import device from '../../theme/media';
-import { squeeze } from '../../utils/animations';
+import { squeeze } from '../../lib/animations';
 
 const Container = styled.h1`
 	line-height: 1.32;

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { rollInLeft } from '../utils/animations';
+import { rollInLeft } from '../lib/animations';
 import HamburgerMenu from './inner-components/hamburgerMenu';
 import { useRouter } from 'next/router';
 import NavOptions from './inner-components/nav-options';

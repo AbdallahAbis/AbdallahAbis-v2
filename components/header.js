@@ -6,7 +6,7 @@ import {
 	bubblesTop,
 	slideInBottom,
 	tiltInBottomRight,
-} from '../utils/animations';
+} from '../lib/animations';
 import Analytics from './analytics';
 import CustomButton from './custom/button';
 import Headline from './custom/headline';

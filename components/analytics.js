@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import device from '../theme/media';
-import { slideInBottom, slideInLeftBlurred } from '../utils/animations';
+import { slideInBottom, slideInLeftBlurred } from '../lib/animations';
 
 const Container = styled.div`
 	align-self: end;

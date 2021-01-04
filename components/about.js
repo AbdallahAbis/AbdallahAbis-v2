@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import device from '../theme/media';
-import { slideInBottom, slideInRight } from '../utils/animations';
+import { slideInBottom, slideInRight } from '../lib/animations';
 import Headline from './custom/headline';
 import Paragraph from './custom/paragraph';
 

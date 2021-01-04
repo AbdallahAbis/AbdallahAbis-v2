@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import device from '../theme/media';
-import { slideInBottom } from '../utils/animations';
+import { slideInBottom } from '../lib/animations';
 import Headline from './custom/headline';
 import OpenInNew from '../public/icons/new-window.svg';
 import Github from '../public/icons/github.svg';

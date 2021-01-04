@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { forwardRef } from 'react';
 import styled from 'styled-components';
 import device from '../../theme/media';
-import { shiny } from '../../utils/animations';
+import { shiny } from '../../lib/animations';
 
 const Button = styled.a`
 	font-family: var(--font-body);

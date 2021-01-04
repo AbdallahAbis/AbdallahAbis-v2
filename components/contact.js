@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import device from '../theme/media';
-import { scaleUp } from '../utils/animations';
+import { scaleUp } from '../lib/animations';
 import CustomButton from './custom/button';
 import Headline from './custom/headline';
 

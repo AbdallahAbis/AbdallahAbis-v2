@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import device from '../../theme/media';
-import { bounceInTop, flicker } from '../../utils/animations';
+import { bounceInTop, flicker } from '../../lib/animations';
 import CustomButton from '../custom/button';
 
 const Options = styled.div`

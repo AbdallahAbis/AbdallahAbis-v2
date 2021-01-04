@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Logo from '../public/brand/logo.svg';
 import SignatureAbdallah from '../public/brand/abdallah.svg';
-import { leave, signature } from '../utils/animations';
+import { leave, signature } from '../lib/animations';
 
 const Container = styled.div`
 	height: 100vh;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import device from '../../theme/media';
-import { rollInRight } from '../../utils/animations';
+import { rollInRight } from '../../lib/animations';
 
 const Hamburger = styled.button`
 	font: inherit;

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import device from '../theme/media';
 import Headline from './custom/headline';
-import carousel from '../utils/carousel';
+import carousel from '../lib/carousel';
 import Image from 'next/image';
 import Logo from '../public/logo.svg';
 

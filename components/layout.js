@@ -6,7 +6,7 @@ import Navigation from './navigation';
 import Particles from 'react-tsparticles';
 import Loader from './loader';
 import { useRouter } from 'next/router';
-import AnimateInView from '../utils/isInView';
+import AnimateInView from '../lib/isInView';
 
 const GlobalStyle = createGlobalStyle`
 
