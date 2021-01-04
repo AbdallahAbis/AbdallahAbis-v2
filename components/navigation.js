@@ -5,7 +5,7 @@ import { rollInLeft } from '../utils/animations';
 import HamburgerMenu from './inner-components/hamburgerMenu';
 import { useRouter } from 'next/router';
 import NavOptions from './inner-components/nav-options';
-import Logo from '../public/logo.svg';
+import Logo from '../public/brand/logo.svg';
 import device from '../theme/media';
 
 const Container = styled.nav`

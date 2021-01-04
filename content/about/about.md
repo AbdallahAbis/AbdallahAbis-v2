@@ -13,7 +13,7 @@ skills: [
 		'Firebase',
 		'Redux-Thunk',
     ]
-image: '/abis.png'
+image: '/images/abis.png'
 ---
 
 I’m a 20 years old freelancer who’s based in Agadir, Morocco. <br /> I

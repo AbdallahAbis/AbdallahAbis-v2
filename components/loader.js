@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import Logo from '../public/logo.svg';
-import SignatureAbdallah from '../public/abdallah.svg';
+import Logo from '../public/brand/logo.svg';
+import SignatureAbdallah from '../public/brand/abdallah.svg';
 import { leave, signature } from '../utils/animations';
 
 const Container = styled.div`

@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import Icon from '../public/next.svg';
-import OpenQuote from '../public/quote.svg';
-import Star from '../public/star.svg';
-import Upwork from '../public/upwork.svg';
+import Icon from '../public/icons/arrow.svg';
+import OpenQuote from '../public/icons/quote.svg';
+import Star from '../public/icons/star.svg';
+import Upwork from '../public/icons/upwork.svg';
 import device from '../theme/media';
 import { slideInBottom } from '../utils/animations';
 import carousel from '../utils/carousel';

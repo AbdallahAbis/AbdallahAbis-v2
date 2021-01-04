@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import Testimonials from '../components/testimonials';
 import Work from '../components/work';
 import { getContentByPath } from '../lib/queryMarkdown';
+
 const IndexPage = ({
 	navData,
 	headerData,
@@ -28,13 +29,17 @@ const IndexPage = ({
 
 export default IndexPage;
 
+// this will retrieve content for each individual section
 export async function getStaticProps() {
+	// getContentByPath is accepting one argument which is the name of the folder that holds the content of the section
 	const navData = await getContentByPath('navigation');
 	const headerData = await getContentByPath('header');
 	const testimonialsData = await getContentByPath('testimonials');
 	const aboutData = await getContentByPath('about');
 	const workData = await getContentByPath('work');
 	const contactData = await getContentByPath('contact');
+
+	// this props are returned and can be used by the IndexPage
 	return {
 		props: {
 			navData,

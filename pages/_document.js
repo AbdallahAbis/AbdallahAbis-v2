@@ -1,3 +1,5 @@
+// This custom Component is used to inject things that are the same for all pages in the head.
+
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 // Import styled components ServerStyleSheet
 import { ServerStyleSheet } from 'styled-components';

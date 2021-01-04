@@ -4,6 +4,7 @@ import device from '../theme/media';
 import Layout from '../components/layout';
 import { getContentByPath } from '../lib/queryMarkdown';
 
+// Styles Start
 const Container = styled.section`
 	display: flex;
 	justify-content: center;
@@ -20,6 +21,8 @@ const Title = styled(Headline)`
 		justify-content: center;
 	}
 `;
+// Styles End
+
 const Blog = ({ navData }) => {
 	return (
 		<Layout data={navData}>

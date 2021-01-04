@@ -3,8 +3,8 @@ import Image from 'next/image';
 import device from '../theme/media';
 import { slideInBottom } from '../utils/animations';
 import Headline from './custom/headline';
-import OpenInNew from '../public/new-window.svg';
-import Github from '../public/github.svg';
+import OpenInNew from '../public/icons/new-window.svg';
+import Github from '../public/icons/github.svg';
 
 // Styles Start
 const Container = styled.section``;
