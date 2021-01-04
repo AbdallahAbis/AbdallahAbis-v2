@@ -34,7 +34,7 @@ Abdallah Abis</h1>
 2.  Fork and/or clone this repo.
 
     ```sh
-    git clone "github repo"
+    git clone https://github.com/AbdallahAbis/AbdallahAbis-v2.git
     ```
 
 3.  Install dependencies
@@ -45,9 +45,9 @@ Abdallah Abis</h1>
 
 4.  Start the development server
 
-         ```sh
-         yarn dev
-         ```
+    ```sh
+    yarn dev
+    ```
 
 5.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
