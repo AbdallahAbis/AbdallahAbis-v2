@@ -145,7 +145,6 @@ const Icons = styled.div`
 // Styles End
 
 const Work = ({ data: { projects } }) => {
-	console.log(projects);
 	return (
 		<Container id='work'>
 			<Title data-animate>Experimental Work.</Title>

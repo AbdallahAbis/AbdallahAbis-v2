@@ -1,13 +1,14 @@
 {
-	"short_name": "Abis",
 	"name": "Abis's Portfolio",
+	"short_name": "Abis",
 	"lang": "en",
-	"start_url": "/",
 	"background_color": "#090117",
 	"theme_color": "#090117",
 	"dir": "ltr",
-	"display": "standalone",
-	"orientation": "any",
+	"display": "fullscreen",
+	"orientation": "portrait",
+	"scope": "/",
+	"start_url": "/",
 	"icons": [
 		{
 			"src": "manifest/android-icon-192x192-dunplab-manifest-29705.ico",
@@ -75,5 +76,5 @@
 			"sizes": "16x16"
 		}
 	],
-	"prefer_related_applications": "false"
+	"splash_pages": null
 }
