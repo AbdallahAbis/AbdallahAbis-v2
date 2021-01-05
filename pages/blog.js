@@ -4,6 +4,7 @@ import device from '../theme/media';
 import Layout from '../components/layout';
 import { getContentByPath } from '../lib/queryMarkdown';
 import { slideInBottom } from '../lib/animations';
+import Head from 'next/head';
 
 // Styles Start
 const Container = styled.section`
