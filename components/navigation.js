@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import NavOptions from './inner-components/nav-options';
 import Logo from '../public/brand/logo.svg';
 import device from '../theme/media';
+import Head from 'next/head';
 
 const Container = styled.nav`
 	position: fixed;
@@ -85,24 +86,58 @@ const Navigation = ({ data }) => {
 	});
 
 	return (
-		<Container className={`${visibleNav} container`}>
-			<div className='innerContainer'>
-				<Link href='/'>
-					<LogoContainer>
-						<Logo />
-					</LogoContainer>
-				</Link>
-				<HamburgerMenu
-					setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
-					hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
+		<>
+			<Head>
+				<meta charSet='utf-8' />
+				<meta httpEquiv='X-UA-Compatible' content='IE=edge' />
+				<meta
+					name='viewport'
+					content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'
 				/>
-				<NavOptions
-					data={data}
-					hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
-					setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
+				<meta
+					name='description'
+					content="I'm a front-end web developer, currently freelancing full-time on Upwork, I offer money-back guarantee, premium, after-sales service, you..."
 				/>
-			</div>
-		</Container>
+				<meta
+					name='keywords'
+					content='JavaScript, developer, web, web dev, front-end, CSS, HTML, JS, React, Abdallah Abis, Abis, Gatsby.js, Next.js'
+				/>
+
+				<link rel='manifest' href='/manifest.json' />
+				<link
+					href='/manifest/favicon-16x16.png'
+					rel='icon'
+					type='image/png'
+					sizes='16x16'
+				/>
+				<link
+					href='/manifest/favicon-32x32.png'
+					rel='icon'
+					type='image/png'
+					sizes='32x32'
+				/>
+				<link rel='apple-touch-icon' href='/manifest/apple-icon.png'></link>
+				<meta name='theme-color' content='#090117' />
+			</Head>
+			<Container className={`${visibleNav} container`}>
+				<div className='innerContainer'>
+					<Link href='/'>
+						<LogoContainer>
+							<Logo />
+						</LogoContainer>
+					</Link>
+					<HamburgerMenu
+						setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
+						hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
+					/>
+					<NavOptions
+						data={data}
+						hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
+						setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
+					/>
+				</div>
+			</Container>
+		</>
 	);
 };
 

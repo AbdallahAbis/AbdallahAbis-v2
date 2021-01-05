@@ -5,11 +5,15 @@
 	"scripts": {
 		"dev": "next dev ",
 		"build": "next build",
-		"start": "next start"
+		"start": "next start",
+		"analyze": "cross-env ANALYZE=true next build",
+		"analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+		"analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
 	},
 	"dependencies": {
 		"gray-matter": "^4.0.2",
 		"next": "10.0.3",
+		"next-pwa": "^5.0.2",
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
 		"react-tsparticles": "^1.18.11",
@@ -21,8 +25,10 @@
 		"typewriter-effect": "^2.17.0"
 	},
 	"devDependencies": {
+		"@next/bundle-analyzer": "^10.0.4",
 		"@svgr/webpack": "^5.5.0",
 		"babel-plugin-inline-react-svg": "^1.1.2",
-		"babel-plugin-styled-components": "^1.12.0"
+		"babel-plugin-styled-components": "^1.12.0",
+		"cross-env": "^7.0.3"
 	}
 }

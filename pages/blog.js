@@ -29,11 +29,19 @@ const Title = styled(Headline)`
 
 const Blog = ({ navData }) => {
 	return (
-		<Layout data={navData}>
-			<Container>
-				<Title>Coming Soon!</Title>
-			</Container>
-		</Layout>
+		<>
+			<Head>
+				<meta
+					name='description'
+					content='I write about all web dev related topics, you can find here topics about CSS, JavaScript, HTML, React, Next.js, Gatsby.js, Redux.js ...'
+				/>
+			</Head>
+			<Layout data={navData}>
+				<Container>
+					<Title>Coming Soon!</Title>
+				</Container>
+			</Layout>
+		</>
 	);
 };
 

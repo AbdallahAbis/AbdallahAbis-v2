@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import Testimonials from '../components/testimonials';
 import Work from '../components/work';
 import { getContentByPath } from '../lib/queryMarkdown';
+import Head from 'next/head';
 
 const IndexPage = ({
 	navData,
@@ -16,14 +17,22 @@ const IndexPage = ({
 	contactData,
 }) => {
 	return (
-		<Layout data={navData}>
-			<Header data={headerData} />
-			<About data={aboutData} />
-			<Work data={workData} />
-			<Testimonials data={testimonialsData} />
-			<Contact data={contactData} />
-			<Footer />
-		</Layout>
+		<>
+			<Head>
+				<meta
+					name='description'
+					content="I'm a front-end web developer, currently freelancing full-time on Upwork, I offer money-back guarantee, premium, after-sales service, you..."
+				/>
+			</Head>
+			<Layout data={navData}>
+				<Header data={headerData} />
+				<About data={aboutData} />
+				<Work data={workData} />
+				<Testimonials data={testimonialsData} />
+				<Contact data={contactData} />
+				<Footer />
+			</Layout>
+		</>
 	);
 };
 

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import device from '../../theme/media';
 import { rollInRight } from '../../lib/animations';
 
-const Hamburger = styled.button`
+const Hamburger = styled.div`
+	cursor: pointer;
 	font: inherit;
 	display: inline-block;
 	overflow: visible;

@@ -165,10 +165,13 @@ const Work = ({ data: { projects } }) => {
 							<Description>{project?.description}</Description>
 
 							<Icons>
-								<a href={project?.live}>
+								<a aria-label='View the project live' href={project?.live}>
 									<OpenInNew />
 								</a>
-								<a href={project?.code}>
+								<a
+									aria-label="View the project's source code"
+									href={project?.code}
+								>
 									<Github />
 								</a>
 							</Icons>

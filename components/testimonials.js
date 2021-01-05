@@ -172,7 +172,8 @@ const ScrollButtons = styled.div`
 		animation: ${slideInBottom} var(--animation-duration)
 			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
-	button {
+	span {
+		cursor: pointer;
 		width: 4rem;
 		height: 4rem;
 		background-color: var(--color-primary-vLight);
@@ -229,12 +230,12 @@ const Testimonials = ({ data: { testimonials } }) => {
 					))}
 				</InnerContainer>
 				<ScrollButtons data-animate>
-					<button className='testimonials-prev'>
+					<span className='testimonials-prev'>
 						<Icon />
-					</button>
-					<button className='testimonials-next'>
+					</span>
+					<span className='testimonials-next'>
 						<Icon />
-					</button>
+					</span>
 				</ScrollButtons>
 			</OuterContainer>
 		</Container>
