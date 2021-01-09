@@ -144,19 +144,6 @@ const ObjectContainer = styled.div`
 		border-radius: 15px;
 	}
 
-	span {
-		display: block;
-		height: 100%;
-		width: 100%;
-		background-color: var(--color-primary-light);
-		border-radius: 15px;
-
-		position: absolute;
-		left: 0;
-		top: 0;
-
-		opacity: 0.2;
-	}
 	@media ${device.large} {
 		display: block;
 		grid-column: 2;
@@ -195,8 +182,6 @@ const About = ({ data: { skills, image, contentHtml } }) => {
 						quality={100}
 						src={image}
 					/>
-					{/* the Image OverLay */}
-					<span></span>
 				</ObjectContainer>
 			</InnerContainer>
 		</Container>

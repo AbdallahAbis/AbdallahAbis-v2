@@ -61,7 +61,7 @@ const Button = styled.a`
 		}
 
 		&:hover {
-			background: var(--color-primary-vLight);
+			background: var(--color-primary-diff-3);
 		}
 	}
 

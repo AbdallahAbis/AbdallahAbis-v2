@@ -8,6 +8,7 @@ import NavOptions from './inner-components/nav-options';
 import Logo from '../public/brand/logo.svg';
 import device from '../theme/media';
 import Head from 'next/head';
+import ThemeSwitcher from './theme-switcher';
 
 const Container = styled.nav`
 	position: fixed;
@@ -18,7 +19,10 @@ const Container = styled.nav`
 	width: 100%;
 
 	&.show {
-		box-shadow: 0 1px 7px 6px rgba(0, 0, 0, 0.9);
+		box-shadow: ${({ isLight }) =>
+			!isLight
+				? '0 1px 7px 6px rgba(0, 0, 0, 0.9)'
+				: '0 3px 5px rgba(57, 63, 72, 0.3)'};
 	}
 	&.hide {
 		transform: translateY(-100%);
@@ -31,6 +35,10 @@ const Container = styled.nav`
 		align-items: center;
 		position: relative;
 		z-index: 5;
+
+		@media ${device.large} {
+			padding-right: 15rem;
+		}
 	}
 `;
 
@@ -51,7 +59,7 @@ const LogoContainer = styled.a`
 	}
 `;
 
-const Navigation = ({ data }) => {
+const Navigation = ({ data, isLight, setIsLight }) => {
 	// if the Hamburger Menu is either Opened or not
 	const [hamburgerMenuActiveStatus, setHamburgerMenuActiveStatus] = useState(
 		false
@@ -86,7 +94,7 @@ const Navigation = ({ data }) => {
 	});
 
 	return (
-		<Container className={`${visibleNav} container`}>
+		<Container isLight={isLight} className={`${visibleNav} container`}>
 			<div className='innerContainer'>
 				<Link href='/'>
 					<LogoContainer>
@@ -97,11 +105,14 @@ const Navigation = ({ data }) => {
 					setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
 					hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
 				/>
+
 				<NavOptions
 					data={data}
 					hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
 					setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
 				/>
+
+				<ThemeSwitcher isLight={isLight} setIsLight={setIsLight} />
 			</div>
 		</Container>
 	);

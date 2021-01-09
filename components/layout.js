@@ -1,26 +1,26 @@
 import Head from 'next/head';
-import { useEffect, useRef, useState } from 'react';
-import { createGlobalStyle } from 'styled-components';
-import device from '../theme/media';
-import Navigation from './navigation';
-import Particles from 'react-tsparticles';
-import Loader from './loader';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import Particles from 'react-tsparticles';
+import { createGlobalStyle } from 'styled-components';
 import AnimateInView from '../lib/isInView';
+import device from '../theme/media';
+import Loader from './loader';
+import Navigation from './navigation';
 
 const GlobalStyle = createGlobalStyle`
 
 /* Global Variables */
   :root{
   --color-primary: #090117;
-  --color-primary-darker: #050a0f;
-  --color-primary-lighter: #050c1e;
-  --color-primary-light: #09141f;
-  --color-primary-vLight: #0d1c2b;
-  --color-text: #DEDEDE;
-  --color-main: #1cd439;
-  --color-main-lighter: #27e245;
+  --color-primary-diff-1: #050c1e;
+  --color-primary-diff-2: #09141f;
+  --color-primary-diff-3: #0d1c2b;
+  --color-text: #dedede;
+  --color-main: #1cd438;
+  --color-main-lighter: #27e246;
   --color-main-darker: #19bd33;
+  --color-primary-diff-3-alpha: 13, 28, 43;
 
 
   --font-body: 'Eina01', sans-serif;
@@ -33,12 +33,23 @@ const GlobalStyle = createGlobalStyle`
   --animation-duration: 0.5s;
    
   }
+[data-theme="light"] {
+	--color-primary: #f7f9fb;
+	--color-primary-diff-1: #edf1f6;
+	--color-primary-diff-2: #e9eff4;
+	--color-primary-diff-3: #e6ecf2;
+	--color-text: #090117;
+	--color-main: #19bd33;
+	--color-main-lighter: #1ac634;
+	--color-main-darker: #18b432;
+	--color-primary-diff-3-alpha: 230, 236, 242;
+}
 
 /* Presets */
   *, *:before, *:after{
     box-sizing: inherit;
     padding: 0;
-    margin: 0;
+	margin: 0;
   }
 
 ::-moz-selection, ::selection {
@@ -52,8 +63,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     overflow-x: hidden;
 	scroll-behavior:smooth;
-
-  }
+	}
 
   body {
     background-color: var(--color-primary);
@@ -145,7 +155,7 @@ const GlobalStyle = createGlobalStyle`
     left:0;
     height: 100%;
     width: 100%;
-    z-index: -10;
+	z-index: -10;
   }
 
 /* Animated Elements Global Style */
@@ -159,6 +169,56 @@ const Layout = ({ children, data }) => {
 	const { asPath } = location;
 	const [loaded, setLoaded] = useState(true);
 	const [sectionForTitle, setSectionForTitle] = useState('Front-end Web Dev');
+	const [isLight, setIsLight] = useState(false);
+	const [particlesColor, setParticlesColor] = useState('');
+	const particlesConfig = {
+		autoPlay: true,
+		backgroundMode: {
+			enable: true,
+			zIndex: -1,
+		},
+		detectRetina: true,
+		fpsLimit: 60,
+		particles: {
+			color: {
+				value: particlesColor || '',
+			},
+			links: {
+				blink: false,
+				color: {
+					value: particlesColor || '',
+				},
+				consent: false,
+				distance: 130,
+				enable: true,
+				frequency: 1,
+				opacity: 0.8,
+				width: 1,
+				warp: false,
+			},
+			move: {
+				enable: true,
+				speed: 2,
+			},
+			number: {
+				density: {
+					enable: true,
+					area: 600,
+					factor: 1000,
+				},
+				value: 60,
+			},
+			opacity: {
+				value: 0.5,
+			},
+			reduceDuplicates: true,
+			size: {
+				value: 2.5,
+			},
+		},
+		pauseOnBlur: true,
+		pauseOnOutsideViewport: true,
+	};
 
 	// Changes the Window Title (The Part After | )
 	const changeTitle = (path) => {
@@ -193,90 +253,32 @@ const Layout = ({ children, data }) => {
 		return changeTitle(setPath); // Capitalizing first letter of the section's id (about => About)
 	}, [asPath]);
 
+	useEffect(() => {
+		setParticlesColor(!isLight ? '#0d1c2b' : '#e6ecf2');
+	}, [isLight]);
+
 	return (
 		<>
 			<Head>
 				<title>{`Abdallah Abis | ${sectionForTitle}`}</title>
 			</Head>
-			<GlobalStyle />
 
+			<GlobalStyle />
 			{!loaded ? ( // If loaded === false then render <Loader/> otherwise render the other part
 				<Loader />
 			) : (
 				// .container is responsible of Websites X-Axis Padding, .innerContainer is responsible of the max-width of the website
 				<>
-					{data ? <Navigation data={data} /> : null}
+					{data ? (
+						<Navigation isLight={isLight} setIsLight={setIsLight} data={data} />
+					) : null}
 					<main className='container'>
 						<div className='innerContainer'>{children}</div>
 					</main>
-					<Particles
-						className='tsparticles'
-						options={{
-							fpsLimit: 60,
-							interactivity: {
-								detectsOn: 'canvas',
-								events: {
-									resize: true,
-								},
-								modes: {
-									bubble: {
-										distance: 400,
-										duration: 2,
-										opacity: 0.8,
-										size: 40,
-									},
-									push: {
-										quantity: 4,
-									},
-									repulse: {
-										distance: 200,
-										duration: 0.4,
-									},
-								},
-							},
-							particles: {
-								color: {
-									value: '#0d1c2b',
-								},
-								links: {
-									color: '#0d1c2b',
-									distance: 150,
-									enable: true,
-									opacity: 0.7,
-									width: 1,
-								},
-								collisions: {
-									enable: true,
-								},
-								move: {
-									direction: 'none',
-									enable: true,
-									outMode: 'bounce',
-									random: false,
-									speed: 6,
-									straight: false,
-								},
-								number: {
-									density: {
-										enable: true,
-										value_area: 800,
-									},
-									value: 80,
-								},
-								opacity: {
-									value: 0.5,
-								},
-								shape: {
-									type: 'circle',
-								},
-								size: {
-									random: true,
-									value: 5,
-								},
-							},
-							detectRetina: true,
-						}}
-					/>
+
+					<div className='tsparticles'>
+						<Particles height='100vh' width='100vw' params={particlesConfig} />
+					</div>
 				</>
 			)}
 		</>

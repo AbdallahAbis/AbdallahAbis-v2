@@ -15,7 +15,7 @@ const Container = styled.div`
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		background-color: var(--color-primary-lighter);
+		background-color: var(--color-primary-diff-1);
 		border-radius: 5px;
 
 		&:nth-child(1) {
