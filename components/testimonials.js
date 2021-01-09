@@ -56,8 +56,8 @@ const Testimonial = styled.div`
 	min-width: 100%;
 	max-width: 500px;
 	min-height: 18rem;
-	border: 2px solid var(--color-primary-light);
-	background-color: rgba(9, 20, 31, 0.4);
+	border: 2px solid var(--color-primary-diff-2);
+	background-color: rgba(var(--color-primary-diff-3-alpha), 0.4);
 	margin: 0 auto;
 	padding: 4rem 3rem;
 	border-radius: 5px;
@@ -115,7 +115,7 @@ const Stars = styled.div`
 	width: 5rem;
 	background-color: var(--color-primary);
 	border-radius: 50%;
-	border-bottom: 2px solid var(--color-primary-light);
+	border-bottom: 2px solid var(--color-primary-diff-2);
 
 	display: flex;
 	justify-content: center;
@@ -147,7 +147,7 @@ const Image = styled.div`
 	width: 5rem;
 	background-color: var(--color-primary);
 	border-radius: 50%;
-	border: 2px solid var(--color-primary-light);
+	border: 2px solid var(--color-primary-diff-2);
 
 	display: flex;
 	justify-content: center;
@@ -176,7 +176,7 @@ const ScrollButtons = styled.div`
 		cursor: pointer;
 		width: 4rem;
 		height: 4rem;
-		background-color: var(--color-primary-vLight);
+		background-color: var(--color-primary-diff-3);
 		border-radius: 5px;
 
 		display: flex;

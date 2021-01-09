@@ -47,7 +47,7 @@ const Container = styled.div`
 			background-color: #abadc6;
 			width: 50%;
 			&.codigo {
-				background-color: var(--color-primary-vLight);
+				background-color: var(--color-primary-diff-3);
 			}
 		}
 		.site {

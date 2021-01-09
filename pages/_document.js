@@ -3,6 +3,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 // Import styled components ServerStyleSheet
 import { ServerStyleSheet } from 'styled-components';
+import { blockingSetInitialColorMode } from '../lib/handleTheme';
 
 export default class MyDocument extends Document {
 	static getInitialProps({ renderPage }) {
@@ -26,6 +27,11 @@ export default class MyDocument extends Document {
 			<Html lang='en'>
 				<Head>{this.props.styleTags}</Head>
 				<body>
+					<script
+						dangerouslySetInnerHTML={{
+							__html: blockingSetInitialColorMode,
+						}}
+					></script>
 					<Main />
 					<NextScript />
 				</body>

@@ -25,9 +25,10 @@ const InnerContainer = styled.div`
 const Project = styled.div`
 	height: 50rem;
 	width: 90%;
-	background-color: var(--color-primary-vLight);
+	background-color: var(--color-primary-diff-3);
 	position: relative;
-	box-shadow: 0 1px 7px 6px rgba(0, 0, 0, 0.2);
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 	font-family: var(--font-circular);
 	font-size: 1.3rem;
 
@@ -77,7 +78,7 @@ const Overlay = styled.div`
 	height: 100%;
 	width: 100%;
 
-	background-color: var(--color-primary-vLight);
+	background-color: var(--color-primary-diff-1);
 	z-index: 1;
 
 	opacity: 0.9;
@@ -102,7 +103,7 @@ const Techs = styled.div`
 	justify-content: center;
 	p {
 		width: max-content;
-		background: var(--color-primary-vLight);
+		background: var(--color-primary-diff-3);
 		padding: 0.5rem 1rem;
 		border-radius: 2px;
 		position: relative;
