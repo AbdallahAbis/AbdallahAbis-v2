@@ -22,7 +22,7 @@ const IndexPage = ({
 			<Head>
 				<meta
 					name='description'
-					content="I'm a front-end web developer, currently freelancing full-time on Upwork, I offer money-back guarantee, premium, after-sales service, you..."
+					content="I'm a JAM Stack web developer, currently freelancing full-time on Upwork, I offer money-back guarantee, premium, after-sales service, you..."
 				/>
 			</Head>
 			<Layout data={navData}>
