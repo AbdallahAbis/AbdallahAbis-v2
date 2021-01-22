@@ -5,6 +5,7 @@ import Particles from 'react-tsparticles';
 import { createGlobalStyle } from 'styled-components';
 import AnimateInView from '../lib/isInView';
 import device from '../theme/media';
+import Footer from './footer';
 import Loader from './loader';
 import Navigation from './navigation';
 
@@ -26,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
   --font-body: 'Eina01', sans-serif;
   --font-code: 'firaCode', sans-serif;
   --font-circular: 'circular', sans-serif;
+  --font-inter: 'inter', sans-serif;
 
   --nav: 8rem;
   --container-padding: 0 2.5rem;
@@ -171,6 +173,7 @@ const Layout = ({ children, data }) => {
 	const [sectionForTitle, setSectionForTitle] = useState('Front-end Web Dev');
 	const [isLight, setIsLight] = useState(false);
 	const [particlesColor, setParticlesColor] = useState('');
+	const [noParticles, setNoParticles] = useState(false);
 	const particlesConfig = {
 		autoPlay: true,
 		backgroundMode: {
@@ -228,20 +231,26 @@ const Layout = ({ children, data }) => {
 
 	useEffect(() => {
 		// Scroll to top when reloaded
-		location.push(location.pathname === '/' ? '/' : location.pathname);
-		window.scrollTo(0, 0);
+		if (location.route === '/') {
+			location.push(location.pathname === '/' ? '/' : location.pathname);
+			window.scrollTo(0, 0);
+		}
 
 		// Executing The Func That is responsible of Detecting in View Elements
 		AnimateInView();
 
 		// Setting Loading to False After the Loading Animation is Finished
-		setTimeout(() => {
-			setLoaded(true);
-		}, 2700);
+		// setTimeout(() => {
+		// 	setLoaded(true);
+		// }, 2700);
 	}, []);
 
 	// Calling this after the site is loaded and every time the URL is Changes
 	useEffect(() => {
+		if (location.route === '/blog/[post]') {
+			setNoParticles(true);
+			return changeTitle(location.query.post.replace(/-/g, ' '));
+		}
 		const setPath =
 			location.route === '/'
 				? `${location.asPath.slice(2).charAt(0).toUpperCase()}${asPath.slice(
@@ -275,6 +284,7 @@ const Layout = ({ children, data }) => {
 					<main className='container'>
 						<div className='innerContainer'>{children}</div>
 					</main>
+					<Footer />
 
 					<div className='tsparticles'>
 						<Particles height='100vh' width='100vw' params={particlesConfig} />

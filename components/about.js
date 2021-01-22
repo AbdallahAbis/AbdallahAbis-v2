@@ -134,14 +134,12 @@ const ObjectContainer = styled.div`
 	height: 349.4px;
 	margin: 0 auto;
 	margin-top: 5rem;
+	overflow: hidden;
+	border-radius: 5px;
 
 	&.animate {
 		animation: ${slideInRight} var(--animation-duration)
 			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-	}
-
-	& .profileImage {
-		border-radius: 15px;
 	}
 
 	@media ${device.large} {
@@ -155,7 +153,7 @@ const ObjectContainer = styled.div`
 `;
 // Styles End
 
-const About = ({ data: { skills, image, contentHtml } }) => {
+const About = ({ data: { skills, image, contentHtml, imageBase64 } }) => {
 	return (
 		<Container id='about'>
 			<InnerContainer>
@@ -165,7 +163,7 @@ const About = ({ data: { skills, image, contentHtml } }) => {
 				<Bio
 					data-animate
 					dangerouslySetInnerHTML={{
-						__html: contentHtml.slice(3, contentHtml.length - 5), // removed the <p></p> from the returned HTML
+						__html: contentHtml,
 					}}
 				/>
 				<SkillsContainer data-animate>
@@ -175,13 +173,25 @@ const About = ({ data: { skills, image, contentHtml } }) => {
 				</SkillsContainer>
 
 				<ObjectContainer data-animate>
-					<Image
-						className='profileImage'
-						width={300}
-						height={487.55}
-						quality={100}
-						src={image}
+					<img
+						aria-hidden='true'
+						alt=''
+						src={imageBase64}
+						style={{
+							position: 'absolute',
+							top: 0,
+							left: 0,
+							right: 0,
+							bottom: 0,
+							width: '100%',
+							height: '100%',
+							objectFit: 'cover',
+							objectPosition: 'center',
+							filter: 'blur(2rem)',
+							transform: 'scale(1.2)',
+						}}
 					/>
+					<Image width={300} height={487.55} quality={100} src={image} />
 				</ObjectContainer>
 			</InnerContainer>
 		</Container>

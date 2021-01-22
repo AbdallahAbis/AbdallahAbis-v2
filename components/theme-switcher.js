@@ -81,9 +81,19 @@ const ThemeSwitcher = ({ isLight, setIsLight }) => {
 			if (isLight) {
 				document.documentElement.setAttribute('data-theme', 'light');
 				window.localStorage.setItem('theme', 'light');
+				const root = document.documentElement;
+				root.style.setProperty(
+					'--initial-color-mode',
+					isLight ? 'light' : 'dark'
+				);
 			} else {
 				document.documentElement.removeAttribute('data-theme');
 				window.localStorage.setItem('theme', 'dark');
+				const root = document.documentElement;
+				root.style.setProperty(
+					'--initial-color-mode',
+					isLight ? 'light' : 'dark'
+				);
 			}
 		}
 	}, [isLight]);
