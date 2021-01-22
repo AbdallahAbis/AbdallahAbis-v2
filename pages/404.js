@@ -1,9 +1,8 @@
 // Credit https://codepen.io/kaypooma/pen/ehfjC
 
+import styled, { keyframes } from 'styled-components';
 import Layout from '../components/layout';
 import { getContentByPath } from '../lib/queryMarkdown';
-import styled, { keyframes } from 'styled-components';
-
 const noise1 = keyframes`
    0%, 20%, 40%, 60%, 70%, 90% {opacity: 0;}
   10% {opacity: .1;}
@@ -30,19 +29,8 @@ const noise3 = keyframes`
 `;
 
 const Container = styled.section`
-	.static {
-		width: 100%;
-		height: 100%;
-		position: relative;
-		margin: 0;
-		padding: 0;
-		top: -100px;
-		opacity: 0.05;
-		z-index: 230;
-		user-select: none;
-		user-drag: none;
-	}
-
+	max-height: 100vh;
+	overflow: hidden;
 	.error {
 		text-align: center;
 		font-family: var(--font-body);
@@ -120,19 +108,19 @@ const Container = styled.section`
 		animation: ${noise2} 0.2s linear infinite;
 	}
 `;
-
+const InnerContainer = styled.div`
+	height: 50%;
+`;
 const NotFoundPage = ({ navData }) => {
 	return (
 		<Layout data={navData}>
 			<Container>
-				<div className='error'>404</div>
-				<br />
-				<br />
-				<span className='info'>Page not found</span>
-				<img
-					src='http://images2.layoutsparks.com/1/160030/too-much-tv-static.gif'
-					className='static'
-				/>
+				<InnerContainer>
+					<div className='error'>404</div>
+					<br />
+					<br />
+					<span className='info'>Page not found</span>
+				</InnerContainer>
 			</Container>
 		</Layout>
 	);

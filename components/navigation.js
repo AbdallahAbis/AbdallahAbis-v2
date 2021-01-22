@@ -17,6 +17,7 @@ const Container = styled.nav`
 	left: 0;
 	transition: 0.2s;
 	width: 100%;
+	background-color: var(--color-primary);
 
 	&.show {
 		box-shadow: ${({ isLight }) =>
@@ -29,7 +30,6 @@ const Container = styled.nav`
 	}
 	.innerContainer {
 		height: var(--nav);
-		background-color: var(--color-primary);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

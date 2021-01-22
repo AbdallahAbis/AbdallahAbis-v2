@@ -16,12 +16,7 @@ skills: [
 image: '/images/abis.png'
 ---
 
-I’m a 20 years old freelancer who’s based in Agadir, Morocco. <br /> I
-design and develop websites and web applications, I haven’t had the
-chance to work in a company yet, but I’ve been freelancing and
-networking with other developers for enough time to be a good designer
-and developer.
-<br /> “Less Is More”, I love dark and minimalist design, That’s why I
-try to make all of my projects simple and stunning. When it comes to
-code, I always write clean and understandable code, with as much
-documentation as possible.
+A JAM Stack web developer who specializes in JavaScript Technologies, Experience in building complete websites with Backend using CMS.<br />
+I have been freelancing and networking with other developers for enough time to be a good designer and developer, in less than 1 year as a freelancer I have worked for +10 clients and worked on +15 projects.<br />
+“Less Is More”, Writing less code leads to clean, functional software that’s easy to maintain over time, I always try to follow this concept and write as little code as possible.
+"Simplicity is Key", Minimalist design lets the content stand out and shine. This is why a simple website design is the first choice I think of when it comes to designing.
