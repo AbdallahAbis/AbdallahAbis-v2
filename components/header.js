@@ -1,13 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import device from '../theme/media';
+import React, { useContext } from 'react';
+import styled, { css } from 'styled-components';
+import { AnimationsContext } from '../contexts/animationsContext';
 import {
 	bubblesBottom,
 	bubblesTop,
 	slideInBottom,
 	tiltInBottomRight,
 } from '../lib/animations';
-import Analytics from './analytics';
+import device from '../theme/media';
+import Analytics from './inner-components/analytics';
 import CustomButton from './custom/button';
 import Headline from './custom/headline';
 import Paragraph from './custom/paragraph';
@@ -52,11 +53,12 @@ const ContentContainer = styled.div`
 	}
 `;
 const Title = styled(Headline)`
+	animation: both;
 	animation: ${slideInBottom} 0.5s 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 		both;
 
 	@media ${device.large} {
-		animation-delay: 2.7s;
+		animation-delay: ${({ noAnimations }) => (noAnimations ? '0s' : ' 2.7s')};
 		width: 85%;
 	}
 `;
@@ -67,7 +69,7 @@ const Description = styled(Paragraph)`
 	margin: 0 auto 6rem;
 
 	@media ${device.large} {
-		animation-delay: 3s;
+		animation-delay: ${({ noAnimations }) => (noAnimations ? '0.2s' : '3s')};
 		margin-left: 0;
 	}
 `;
@@ -76,8 +78,10 @@ const ComputerContainer = styled.div`
 
 	@media ${device.large} {
 		display: block;
-		animation: ${tiltInBottomRight} 0.4s 3.3s
-			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		animation: ${tiltInBottomRight} 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+			both;
+
+		animation-delay: ${({ noAnimations }) => (noAnimations ? '0.4s' : '3.3s')};
 	}
 `;
 const Button = styled(CustomButton)`
@@ -186,27 +190,30 @@ const Button = styled(CustomButton)`
 	}
 	@media ${device.large} {
 		margin: 0;
-		animation-delay: 3.3s;
+		animation-delay: ${({ noAnimations }) => (noAnimations ? '0.4s' : '3.3s')};
 	}
 `;
 // Styles End
 
 const Header = ({ data: { headline, paragraph, button, analytics } }) => {
+	const [noAnimations, setNoAnimations] = useContext(AnimationsContext);
 	return (
 		<Container id='home'>
 			<InnerContainer>
 				<ContentContainer>
-					<Title aria-label={headline}>{headline}</Title>
-					<Description>{paragraph}</Description>
-					<Button href='/#testimonials'>
+					<Title aria-label={headline} noAnimations={noAnimations}>
+						{headline}
+					</Title>
+					<Description noAnimations={noAnimations}>{paragraph}</Description>
+					<Button href='/#testimonials' noAnimations={noAnimations}>
 						<span className='before'></span> {button}
 						<span className='after'></span>
 					</Button>
 				</ContentContainer>
-				<ComputerContainer>
+				<ComputerContainer noAnimations={noAnimations}>
 					<Computer />
 				</ComputerContainer>
-				<Analytics data={analytics} />
+				<Analytics data={analytics} noAnimations={noAnimations} />
 			</InnerContainer>
 		</Container>
 	);
