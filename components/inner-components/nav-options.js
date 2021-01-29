@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useRef, useState, useContext } from 'react';
+import styled, { css } from 'styled-components';
 import device from '../../theme/media';
-import { bounceInTop, flicker } from '../../lib/animations';
+import { bounceInTop, flicker, slideInBottom } from '../../lib/animations';
 import CustomButton from '../custom/button';
+import { AnimationsContext } from '../../contexts/animationsContext';
 
 const Options = styled.div`
 	position: absolute;
@@ -19,6 +20,8 @@ const Options = styled.div`
 	transition: max-height 0.3s;
 	display: block;
 	box-shadow: 0px 13px 15px -13px #000;
+	margin: 0 -2.5rem;
+	width: 100vw;
 
 	&.true {
 		overflow-x: hidden;
@@ -45,19 +48,54 @@ const Options = styled.div`
 			}
 			@media ${device.large} {
 				&:nth-child(1) {
-					animation: ${bounceInTop} 3s ease-out both;
+					animation: ${({ noAnimations }) =>
+						noAnimations
+							? css`
+									${slideInBottom} 1s ease both
+							  `
+							: css`
+									${bounceInTop} 3s ease-out both
+							  `};
 				}
 				&:nth-child(2) {
-					animation: ${bounceInTop} 3s ease-out 0.1s both;
+					animation: ${({ noAnimations }) =>
+						noAnimations
+							? css`
+									${slideInBottom} 1s ease both
+							  `
+							: css`
+									${bounceInTop} 3s ease-out 0.1s both
+							  `};
 				}
 				&:nth-child(3) {
-					animation: ${bounceInTop} 3s ease-out 0.2s both;
+					animation: ${({ noAnimations }) =>
+						noAnimations
+							? css`
+									${slideInBottom} 1s ease both
+							  `
+							: css`
+									${bounceInTop} 3s ease-out 0.2s both
+							  `};
 				}
 				&:nth-child(4) {
-					animation: ${bounceInTop} 3s ease-out 0.3s both;
+					animation: ${({ noAnimations }) =>
+						noAnimations
+							? css`
+									${slideInBottom} 1s ease both
+							  `
+							: css`
+									${bounceInTop} 3s ease-out 0.3s both
+							  `};
 				}
 				&:nth-child(5) {
-					animation: ${bounceInTop} 3s ease-out 0.4s both;
+					animation: ${({ noAnimations }) =>
+						noAnimations
+							? css`
+									${slideInBottom} 1s ease both
+							  `
+							: css`
+									${bounceInTop} 3s ease-out 0.4s both
+							  `};
 				}
 			}
 		}
@@ -111,7 +149,14 @@ const Options = styled.div`
 
 const Button = styled(CustomButton)`
 	@media ${device.large} {
-		animation: ${flicker} 2s 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		animation: ${({ noAnimations }) =>
+			noAnimations
+				? css`
+						${slideInBottom} .5s ease both
+				  `
+				: css`
+						${flicker} 2s 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
+				  `};
 	}
 `;
 
@@ -120,6 +165,7 @@ const NavOptions = ({
 	setHamburgerMenuActiveStatus,
 	data: { routes: options, button },
 }) => {
+	const [noAnimations, setNoAnimations] = useContext(AnimationsContext);
 	const [navHeight, setNavHeight] = useState(0);
 	const [activeNavLink, setActiveNavLink] = useState(0);
 	const navRef = useRef(null);
@@ -131,7 +177,9 @@ const NavOptions = ({
 				? location.asPath.slice(2)
 				: location.route.slice(1);
 		const active = options.filter((el) => el.toLowerCase() === activeHash);
-		setActiveNavLink(active[0] ? active[0] : 'home');
+		setActiveNavLink(
+			active[0] ? active[0] : activeHash === 'blog/[post]' ? 'blog' : 'home'
+		);
 		setNavHeight(navRef.current.offsetHeight);
 	}, [setNavHeight, location, options]);
 
@@ -159,6 +207,7 @@ const NavOptions = ({
 
 	return (
 		<Options
+			noAnimations={noAnimations}
 			className={hamburgerMenuActiveStatus.toString()}
 			elHeight={navHeight && navHeight}
 		>
@@ -187,7 +236,11 @@ const NavOptions = ({
 					</li>
 				))}
 				<li>
-					<Button className='navLink' href='/#contact'>
+					<Button
+						noAnimations={noAnimations}
+						className='navLink'
+						href='/#contact'
+					>
 						{button}
 					</Button>
 				</li>

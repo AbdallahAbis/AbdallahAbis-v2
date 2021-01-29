@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { rollInLeft } from '../lib/animations';
 import HamburgerMenu from './inner-components/hamburgerMenu';
@@ -8,7 +8,8 @@ import NavOptions from './inner-components/nav-options';
 import Logo from '../public/brand/logo.svg';
 import device from '../theme/media';
 import Head from 'next/head';
-import ThemeSwitcher from './theme-switcher';
+import ThemeSwitcher from './inner-components/theme-switcher';
+import { ThemeContext } from '../contexts/themeContext';
 
 const Container = styled.nav`
 	position: fixed;
@@ -17,7 +18,6 @@ const Container = styled.nav`
 	left: 0;
 	transition: 0.2s;
 	width: 100%;
-	background-color: var(--color-primary);
 
 	&.show {
 		box-shadow: ${({ isLight }) =>
@@ -34,6 +34,7 @@ const Container = styled.nav`
 		justify-content: space-between;
 		align-items: center;
 		position: relative;
+		background-color: var(--color-primary);
 		z-index: 5;
 
 		@media ${device.large} {
@@ -59,15 +60,20 @@ const LogoContainer = styled.a`
 	}
 `;
 
-const Navigation = ({ data, isLight, setIsLight }) => {
+const KeepHeight = styled.div`
+	height: var(--nav);
+	position: static;
+`;
+
+const Navigation = ({ data }) => {
 	// if the Hamburger Menu is either Opened or not
 	const [hamburgerMenuActiveStatus, setHamburgerMenuActiveStatus] = useState(
 		false
 	);
+	const [isLight] = useContext(ThemeContext);
 
 	// this className is responsible for showing/hiding the navBar when scrolling
 
-	//
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
 	const [visibleNav, setVisibleNav] = useState('');
 
@@ -75,14 +81,14 @@ const Navigation = ({ data, isLight, setIsLight }) => {
 		// find current scroll position
 		const currentScrollPos = window.pageYOffset;
 
-		// set state based on location info (explained in more detail below)
+		// 	// set state based on location info (explained in more detail below)
 		currentScrollPos > 80 && currentScrollPos > prevScrollPos
 			? setVisibleNav('hide')
 			: currentScrollPos < prevScrollPos && currentScrollPos > 50
 			? setVisibleNav('show')
 			: setVisibleNav();
 
-		// set state to new scroll position
+		// 	// set state to new scroll position
 		setPrevScrollPos(currentScrollPos);
 	};
 
@@ -94,27 +100,30 @@ const Navigation = ({ data, isLight, setIsLight }) => {
 	});
 
 	return (
-		<Container isLight={isLight} className={`${visibleNav} container`}>
-			<div className='innerContainer'>
-				<Link href='/'>
-					<LogoContainer>
-						<Logo />
-					</LogoContainer>
-				</Link>
-				<HamburgerMenu
-					setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
-					hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
-				/>
+		<>
+			<KeepHeight />
+			<Container isLight={isLight} className={`${visibleNav} container nav`}>
+				<div className='innerContainer'>
+					<Link href='/'>
+						<LogoContainer>
+							<Logo />
+						</LogoContainer>
+					</Link>
+					<HamburgerMenu
+						setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
+						hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
+					/>
 
-				<NavOptions
-					data={data}
-					hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
-					setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
-				/>
+					<NavOptions
+						data={data}
+						hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
+						setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
+					/>
 
-				<ThemeSwitcher isLight={isLight} setIsLight={setIsLight} />
-			</div>
-		</Container>
+					<ThemeSwitcher />
+				</div>
+			</Container>
+		</>
 	);
 };
 

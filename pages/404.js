@@ -1,7 +1,7 @@
 // Credit https://codepen.io/kaypooma/pen/ehfjC
 
 import styled, { keyframes } from 'styled-components';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 import { getContentByPath } from '../lib/queryMarkdown';
 const noise1 = keyframes`
    0%, 20%, 40%, 60%, 70%, 90% {opacity: 0;}

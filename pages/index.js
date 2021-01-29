@@ -2,7 +2,7 @@ import Head from 'next/head';
 import About from '../components/about';
 import Contact from '../components/contact';
 import Header from '../components/header';
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
 import Testimonials from '../components/testimonials';
 import Work from '../components/work';
 import { getContentByPath } from '../lib/queryMarkdown';
