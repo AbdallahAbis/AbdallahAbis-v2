@@ -46,29 +46,20 @@ const Container = styled.div`
 	}
 `;
 
-const BlogImage = ({ image, imageBase64, ...props }) => {
+const BlogImage = ({ image, blurredImage, ...props }) => {
 	return (
 		<Container {...props}>
-			<img
-				aria-hidden='true'
-				alt=''
-				src={imageBase64}
+			<div
 				style={{
-					position: 'absolute',
-					top: 0,
-					left: 0,
-					right: 0,
-					bottom: 0,
-					width: '100%',
+					...blurredImage,
 					height: '100%',
-					objectFit: 'cover',
-					objectPosition: 'center',
+					width: '100%',
 					filter: 'blur(2rem)',
-					transform: 'scale(1.2)',
+					transform: 'scale(1.1)',
 				}}
 			/>
 
-			<Image src={image} layout='fill' quality={90} />
+			<Image src={image} layout='fill' quality={100} />
 		</Container>
 	);
 };

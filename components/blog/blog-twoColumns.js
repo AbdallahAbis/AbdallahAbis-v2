@@ -62,7 +62,7 @@ const TwoColumnsPost = ({ post }) => {
 			<BlogImage
 				priority
 				image={post?.thumbnail}
-				imageBase64={post.imageBase64}
+				blurredImage={post.blurredImage}
 			/>
 			<BlogInfo>
 				<CategoryAndDate category={post?.category} date={post?.date} />
@@ -71,6 +71,7 @@ const TwoColumnsPost = ({ post }) => {
 				<Signature
 					author={post?.author?.name}
 					authorImage={post?.author?.image}
+					blurredAuthorImage={post?.blurredAuthorImage}
 				/>
 			</BlogInfo>
 		</Header>
