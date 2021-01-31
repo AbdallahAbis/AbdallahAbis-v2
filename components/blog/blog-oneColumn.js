@@ -45,12 +45,13 @@ const BlogInfo = styled.div`
 // Styles End
 
 const OneColumnPost = ({ post }) => {
+	console.log(post);
 	return (
 		<Header data-animate>
 			<BlogImage
 				priority
 				image={post?.thumbnail}
-				imageBase64={post.imageBase64}
+				blurredImage={post.blurredImage}
 			/>
 			<BlogInfo>
 				<CategoryAndDate category={post?.category} date={post?.date} />
@@ -59,6 +60,7 @@ const OneColumnPost = ({ post }) => {
 				<Signature
 					author={post?.author?.name}
 					authorImage={post?.author?.image}
+					blurredAuthorImage={post?.blurredAuthorImage}
 				/>
 			</BlogInfo>
 		</Header>

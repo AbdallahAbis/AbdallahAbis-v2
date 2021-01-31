@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -14,14 +15,6 @@ const Container = styled.div`
 		display: flex;
 		align-items: center;
 		height: 4rem;
-		img {
-			height: 4rem;
-			width: 4rem;
-			border-radius: 50%;
-			margin-right: 1rem;
-			opacity: 1;
-			object-fit: cover;
-		}
 		p {
 			white-space: nowrap;
 			font-weight: 700;
@@ -44,11 +37,36 @@ const Container = styled.div`
 	}
 `;
 
-const Signature = ({ author, authorImage }) => {
+const ImageContainer = styled.div`
+	height: 4rem;
+	width: 4rem;
+	overflow: hidden;
+	border-radius: 50%;
+	margin-right: 1rem;
+	opacity: 1;
+	position: relative;
+	img {
+		object-fit: cover;
+	}
+`;
+
+const Signature = ({ author, authorImage, blurredAuthorImage }) => {
+	console.log(blurredAuthorImage);
 	return (
 		<Container>
 			<div>
-				<img src={authorImage} alt='' />
+				<ImageContainer>
+					<div
+						style={{
+							...blurredAuthorImage,
+							height: '100%',
+							width: '100%',
+							filter: 'blur(0.3rem)',
+							transform: 'scale(1.2)',
+						}}
+					/>
+					<Image layout='fill' quality={50} src={authorImage} alt='' />
+				</ImageContainer>
 				<p>
 					<span>By</span> {author}
 				</p>

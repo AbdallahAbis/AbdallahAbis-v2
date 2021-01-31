@@ -56,7 +56,7 @@ const ThreeColumns = ({ post }) => {
 			<BlogImage
 				priority
 				image={post?.thumbnail}
-				imageBase64={post.imageBase64}
+				blurredImage={post.blurredImage}
 			/>
 			<BlogInfo>
 				<CategoryAndDate category={post?.category} date={post?.date} />
@@ -65,6 +65,7 @@ const ThreeColumns = ({ post }) => {
 				<Signature
 					author={post?.author?.name}
 					authorImage={post?.author?.image}
+					blurredAuthorImage={post?.blurredAuthorImage}
 				/>
 			</BlogInfo>
 		</Header>

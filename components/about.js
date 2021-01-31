@@ -153,7 +153,7 @@ const ObjectContainer = styled.div`
 `;
 // Styles End
 
-const About = ({ data: { skills, image, contentHtml, imageBase64 } }) => {
+const About = ({ data: { skills, image, contentHtml, blurredImage } }) => {
 	return (
 		<Container id='about'>
 			<InnerContainer>
@@ -173,25 +173,16 @@ const About = ({ data: { skills, image, contentHtml, imageBase64 } }) => {
 				</SkillsContainer>
 
 				<ObjectContainer data-animate>
-					<img
-						aria-hidden='true'
-						alt=''
-						src={imageBase64}
+					<div
 						style={{
-							position: 'absolute',
-							top: 0,
-							left: 0,
-							right: 0,
-							bottom: 0,
-							width: '100%',
+							...blurredImage,
 							height: '100%',
-							objectFit: 'cover',
-							objectPosition: 'center',
+							width: '100%',
 							filter: 'blur(2rem)',
-							transform: 'scale(1.2)',
+							transform: 'scale(1.1)',
 						}}
 					/>
-					<Image width={300} height={487.55} quality={100} src={image} />
+					<Image layout='fill' quality={100} src={image} />
 				</ObjectContainer>
 			</InnerContainer>
 		</Container>

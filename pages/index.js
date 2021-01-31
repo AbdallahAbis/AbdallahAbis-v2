@@ -7,7 +7,7 @@ import Testimonials from '../components/testimonials';
 import Work from '../components/work';
 import { getContentByPath } from '../lib/queryMarkdown';
 import { getImage } from '@plaiceholder/next';
-import { getBase64 } from '@plaiceholder/base64';
+import { getPixelsCSS } from '@plaiceholder/css';
 
 const IndexPage = ({
 	navData,
@@ -50,8 +50,8 @@ export async function getStaticProps() {
 
 	const imgSrc = pureAboutData?.image;
 	const img = await getImage(imgSrc);
-	const imageBase64 = await getBase64(img);
-	const aboutData = { ...pureAboutData, imageBase64 };
+	const blurredImage = await getPixelsCSS(img);
+	const aboutData = { ...pureAboutData, blurredImage };
 
 	// this props are returned and can be used by the IndexPage
 	return {
