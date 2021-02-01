@@ -51,7 +51,6 @@ const ImageContainer = styled.div`
 `;
 
 const Signature = ({ author, authorImage, blurredAuthorImage }) => {
-	console.log(blurredAuthorImage);
 	return (
 		<Container>
 			<div>

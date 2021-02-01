@@ -165,7 +165,7 @@ const NavOptions = ({
 	setHamburgerMenuActiveStatus,
 	data: { routes: options, button },
 }) => {
-	const [noAnimations, setNoAnimations] = useContext(AnimationsContext);
+	const [noAnimations] = useContext(AnimationsContext);
 	const [navHeight, setNavHeight] = useState(0);
 	const [activeNavLink, setActiveNavLink] = useState(0);
 	const navRef = useRef(null);

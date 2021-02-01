@@ -45,7 +45,6 @@ const BlogInfo = styled.div`
 // Styles End
 
 const OneColumnPost = ({ post }) => {
-	console.log(post);
 	return (
 		<Header data-animate>
 			<BlogImage
