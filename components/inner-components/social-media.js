@@ -4,7 +4,7 @@ import { AnimationsContext } from '../../contexts/animationsContext';
 import { rollInBottom } from '../../lib/animations';
 import CodePen from '../../public/icons/codepen.svg';
 import Github from '../../public/icons/github.svg';
-import Instagram from '../../public/icons/instagram.svg';
+import Insta from '../../public/icons/instagram.svg';
 import LinkedIn from '../../public/icons/linkedin.svg';
 import Twitter from '../../public/icons/twitter.svg';
 import UpWork from '../../public/icons/upwork.svg';
@@ -64,7 +64,7 @@ const SVG = ({ name }) =>
 	) : name === 'Twitter' ? (
 		<Twitter />
 	) : name === 'Instagram' ? (
-		<Instagram />
+		<Insta />
 	) : name === 'upWork' ? (
 		<UpWork />
 	) : (
@@ -99,10 +99,6 @@ const socialMedia = [
 
 const SocialMedia = (props) => {
 	const [noAnimations] = useContext(AnimationsContext);
-
-	useEffect(() => {
-		console.log(noAnimations);
-	}, [noAnimations]);
 
 	return (
 		<SocialContainer noAnimations={noAnimations} {...props}>
