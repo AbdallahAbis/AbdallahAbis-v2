@@ -196,7 +196,7 @@ const Button = styled(CustomButton)`
 // Styles End
 
 const Header = ({ data: { headline, paragraph, button, analytics } }) => {
-	const [noAnimations, setNoAnimations] = useContext(AnimationsContext);
+	const [noAnimations] = useContext(AnimationsContext);
 	return (
 		<Container id='home'>
 			<InnerContainer>
