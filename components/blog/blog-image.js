@@ -18,7 +18,6 @@ const Container = styled.div`
 	border-radius: 5px;
 	img {
 		object-fit: cover;
-		cursor: pointer;
 	}
 
 	@media ${device.large} {
