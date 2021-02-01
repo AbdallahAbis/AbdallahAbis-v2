@@ -76,7 +76,7 @@ const Container = styled.div`
 const ThemeSwitcher = () => {
 	const location = useRouter();
 	const [isLight, setIsLight] = useContext(ThemeContext);
-	const [noAnimations, setNoAnimations] = useContext(AnimationsContext);
+	const [noAnimations] = useContext(AnimationsContext);
 
 	const handleToggle = () => {
 		setIsLight(!isLight);
