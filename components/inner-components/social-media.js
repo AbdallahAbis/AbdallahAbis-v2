@@ -4,7 +4,7 @@ import { AnimationsContext } from '../../contexts/animationsContext';
 import { rollInBottom } from '../../lib/animations';
 import CodePen from '../../public/icons/codepen.svg';
 import Github from '../../public/icons/github.svg';
-import Insta from '../../public/icons/instagram.svg';
+import Instagram from '../../public/icons/insta.svg';
 import LinkedIn from '../../public/icons/linkedin.svg';
 import Twitter from '../../public/icons/twitter.svg';
 import UpWork from '../../public/icons/upwork.svg';
@@ -64,7 +64,7 @@ const SVG = ({ name }) =>
 	) : name === 'Twitter' ? (
 		<Twitter />
 	) : name === 'Instagram' ? (
-		<Insta />
+		<Instagram />
 	) : name === 'upWork' ? (
 		<UpWork />
 	) : (
