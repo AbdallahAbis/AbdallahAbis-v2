@@ -1,17 +1,13 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
-import AnimateInView from '../../lib/isInView';
-import device from '../../theme/media';
-import Footer from '../footer';
-import Navigation from '../navigation';
-import Particles from '../inner-components/particles';
 import { AnimationsContext } from '../../contexts/animationsContext';
-import SocialMedia from '../inner-components/social-media';
-import { rollInBottom } from '../../lib/animations';
-import Email from '../inner-components/email';
+import AnimateInView from '../../lib/isInView';
 import GlobalStyles from '../../theme/global/global-styles';
+import Footer from '../footer';
+import Particles from '../inner-components/particles';
+import SocialMedia from '../inner-components/social-media';
+import Navigation from '../navigation';
 
 const Layout = ({ children, data }) => {
 	const location = useRouter();
@@ -66,7 +62,6 @@ const Layout = ({ children, data }) => {
 			</main>
 			<Footer />
 			{location.route !== '/blog/[post]' && <SocialMedia />}
-			{/* <Email /> */}
 			<Particles />
 		</>
 	);
