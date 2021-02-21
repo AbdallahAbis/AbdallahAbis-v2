@@ -1,4 +1,4 @@
 ---
-routes: ['home', 'about', 'work', 'testimonials', 'blog']
+routes: ['home', 'about', 'work', 'testimonials', '']
 button: "Let's Talk"
 ---
