@@ -4,8 +4,8 @@ paragraph: "I'm a front-end web developer, currently freelancing full-time on Up
 button: 'Testimonials'
 analytics:
   [
-    { number: '11', of: 'Happy Clients' },
-    { number: '14', of: 'Completed Projects' },
-    { number: '9', of: 'Hours Billed' },
+    { number: '16', of: 'Happy Clients' },
+    { number: '26', of: 'Completed Projects' },
+    { number: '1400', of: 'Hours Billed' },
   ]
 ---
