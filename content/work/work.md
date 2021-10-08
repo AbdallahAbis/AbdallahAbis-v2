@@ -31,5 +31,11 @@ projects:
       live: 'v1.abdallahabis.com',
       code: 'https://github.com/AbdallahAbis/Abdallah-Abis',
     },
+    {
+      image: '/projects/cutByFred.png',
+      techs: [Gatsby.js, Graphql, Redux, Redux-persist, TailwindCss, Wordpress CMS],
+      description: "I've had the pleasure to work with <a href='http://standby.pa-th.com/' target='_blank'>PATH</a> to build an online presence for Cut By Fred where they can sell their products and allow clients to book appointments, I handled most of the UI, Functionality, and API calls while PATH has handled wordpress CMS and some of the UI details."  ,
+      live: 'https://cutbyfred.com/',
+    },
   ]
 ---

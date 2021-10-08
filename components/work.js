@@ -124,6 +124,10 @@ const Description = styled.p`
 
 	transform: translate(-50%, -50%);
 
+  a {
+    color: var(--color-main-darker);
+  }
+
 	@media ${device.large} {
 		text-align: center;
 	}
@@ -134,9 +138,9 @@ const Icons = styled.div`
 	left: 50%;
 	transform: translateX(-50%);
 	padding-bottom: 2rem;
-	display: grid;
-	grid-template-columns: repeat(2, max-content);
-	grid-column-gap: 4rem;
+	display: flex;
+	gap: 4rem;
+  justify-items: center;
 
 	svg {
 		height: 2.5rem;
@@ -161,19 +165,25 @@ const Work = ({ data: { projects } }) => {
 									<p key={i}>{tech}</p>
 								))}
 							</Techs>
-
-							<Description>{project?.description}</Description>
-
+              <Description dangerouslySetInnerHTML={{ __html: project?.description}} />
 							<Icons>
-								<a aria-label='View the project live' href={project?.live}>
-									<OpenInNew />
-								</a>
-								<a
-									aria-label="View the project's source code"
-									href={project?.code}
-								>
-									<Github />
-								</a>
+                {project?.live &&
+                  <a
+                    aria-label='View the project live'
+                    target='_blank'
+                    href={project?.live}
+                >
+									  <OpenInNew />
+								  </a>}
+                {(project?.code) &&
+                  <a
+                    aria-label="View the project's source code"
+                    target='_blank'  
+                    href={project?.code}
+                  >
+									  <Github />
+							    </a>
+                }
 							</Icons>
 						</Content>
 					</Project>
