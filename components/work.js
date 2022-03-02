@@ -152,7 +152,7 @@ const Icons = styled.div`
 const Work = ({ data: { projects } }) => {
 	return (
 		<Container id='work'>
-			<Title data-animate>Experimental Work.</Title>
+			<Title data-animate>Previous Work.</Title>
 
 			<InnerContainer>
 				{projects.map((project, i) => (
