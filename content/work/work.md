@@ -34,7 +34,7 @@ projects:
       image: '/projects/portfolio-v1.png',
       techs: [Gatsby.js, Styled-components, Markdown],
       description: 'I built version 1 of my portfolio while learning Gatsby.js, the portfolio has bunch of CSS animations and it was re-designed by me as the design was inspired but another person.',
-      live: 'v1.abis.dev',
+      live: 'https://v1.abis.dev',
       code: 'https://github.com/AbdallahAbis/Abdallah-Abis',
     },
   ]
