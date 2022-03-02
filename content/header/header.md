@@ -6,6 +6,6 @@ analytics:
   [
     { number: '16', of: 'Happy Clients' },
     { number: '26', of: 'Completed Projects' },
-    { number: '1400', of: 'Hours Billed' },
+    { number: '2281', of: 'Hours Billed' },
   ]
 ---
