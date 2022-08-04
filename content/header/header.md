@@ -5,7 +5,7 @@ button: 'Testimonials'
 analytics:
   [
     { number: '16', of: 'Happy Clients' },
-    { number: '26', of: 'Completed Projects' },
-    { number: '2281', of: 'Hours Billed' },
+    { number: '27', of: 'Completed Projects' },
+    { number: '3087', of: 'Hours Billed' },
   ]
 ---
