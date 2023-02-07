@@ -22,7 +22,7 @@ export default class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     console.log(initialProps);
     
-    return { ...initialProps, styles: styleTags };
+    return { ...initialProps, styleTags };
   }
 
   render() {
