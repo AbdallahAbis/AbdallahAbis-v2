@@ -23,10 +23,10 @@ const ImageContainer = styled.div`
 
 const PostImage = ({ url, alt }) => {
 	return (
-		<ImageContainer>
-			<Image src={url} alt={alt} layout='fill' />
-		</ImageContainer>
-	);
+    <ImageContainer>
+      <Image src={url} alt={alt} fill />
+    </ImageContainer>
+  );
 };
 
 export default PostImage;

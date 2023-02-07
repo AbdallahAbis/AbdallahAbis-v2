@@ -151,46 +151,54 @@ const Icons = styled.div`
 
 const Work = ({ data: { projects } }) => {
 	return (
-		<Container id='work'>
-			<Title data-animate>Previous Work.</Title>
+    <Container id="work">
+      <Title data-animate>Previous Work.</Title>
 
-			<InnerContainer>
-				{projects.map((project, i) => (
-					<Project key={i} data-animate>
-						<Overlay />
-						<Image src={project?.image} layout='responsive' layout='fill' />
-						<Content>
-							<Techs>
-								{project?.techs?.map((tech, i) => (
-									<p key={i}>{tech}</p>
-								))}
-							</Techs>
-              <Description dangerouslySetInnerHTML={{ __html: project?.description}} />
-							<Icons>
-                {project?.live &&
+      <InnerContainer>
+        {projects.map((project, i) => (
+          <Project key={i} data-animate>
+            <Overlay />
+            <Image
+              src={project?.image}
+              alt="One Of My Projects"
+              fill
+              sizes="350px"
+            />
+            <Content>
+              <Techs>
+                {project?.techs?.map((tech, i) => (
+                  <p key={i}>{tech}</p>
+                ))}
+              </Techs>
+              <Description
+                dangerouslySetInnerHTML={{ __html: project?.description }}
+              />
+              <Icons>
+                {project?.live && (
                   <a
-                    aria-label='View the project live'
-                    target='_blank'
+                    aria-label="View the project live"
+                    target="_blank"
                     href={project?.live}
-                >
-									  <OpenInNew />
-								  </a>}
-                {(project?.code) &&
+                  >
+                    <OpenInNew />
+                  </a>
+                )}
+                {project?.code && (
                   <a
                     aria-label="View the project's source code"
-                    target='_blank'  
+                    target="_blank"
                     href={project?.code}
                   >
-									  <Github />
-							    </a>
-                }
-							</Icons>
-						</Content>
-					</Project>
-				))}
-			</InnerContainer>
-		</Container>
-	);
+                    <Github />
+                  </a>
+                )}
+              </Icons>
+            </Content>
+          </Project>
+        ))}
+      </InnerContainer>
+    </Container>
+  );
 };
 
 export default Work;

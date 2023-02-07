@@ -43,88 +43,87 @@ const Container = styled.nav`
 	}
 `;
 
-const LogoContainer = styled.a`
-	height: 3rem;
-	width: 3rem;
-	z-index: 10;
-	animation: ${rollInLeft} 0.6s ease-out both;
-	cursor: pointer;
+const LogoContainer = styled.div`
+  height: 3rem;
+  width: 3rem;
+  z-index: 10;
+  animation: ${rollInLeft} 0.6s ease-out both;
+  cursor: pointer;
 
-	svg {
-		fill: var(--color-main);
-		height: 100%;
-		width: 100%;
-		&:hover {
-			fill: var(--color-main-lighter);
-		}
-	}
+  svg {
+    fill: var(--color-main);
+    height: 100%;
+    width: 100%;
+    &:hover {
+      fill: var(--color-main-lighter);
+    }
+  }
 `;
 
 const KeepHeight = styled.div`
-	height: var(--nav);
-	position: static;
+  height: var(--nav);
+  position: static;
 `;
 
 const Navigation = ({ data }) => {
-	// if the Hamburger Menu is either Opened or not
-	const [hamburgerMenuActiveStatus, setHamburgerMenuActiveStatus] = useState(
-		false
-	);
-	const [isLight] = useContext(ThemeContext);
+  // if the Hamburger Menu is either Opened or not
+  const [hamburgerMenuActiveStatus, setHamburgerMenuActiveStatus] =
+    useState(false);
+  const [isLight] = useContext(ThemeContext);
 
-	// this className is responsible for showing/hiding the navBar when scrolling
+  // this className is responsible for showing/hiding the navBar when scrolling
 
-	const [prevScrollPos, setPrevScrollPos] = useState(0);
-	const [visibleNav, setVisibleNav] = useState('');
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visibleNav, setVisibleNav] = useState("");
 
-	const handleScroll = () => {
-		// find current scroll position
-		const currentScrollPos = window.pageYOffset;
+  const handleScroll = () => {
+    // find current scroll position
+    const currentScrollPos = window.pageYOffset;
 
-		// 	// set state based on location info (explained in more detail below)
-		currentScrollPos > 80 && currentScrollPos > prevScrollPos
-			? setVisibleNav('hide')
-			: currentScrollPos < prevScrollPos && currentScrollPos > 50
-			? setVisibleNav('show')
-			: setVisibleNav();
+    // 	// set state based on location info (explained in more detail below)
+    currentScrollPos > 80 && currentScrollPos > prevScrollPos
+      ? setVisibleNav("hide")
+      : currentScrollPos < prevScrollPos && currentScrollPos > 50
+      ? setVisibleNav("show")
+      : setVisibleNav();
 
-		// 	// set state to new scroll position
-		setPrevScrollPos(currentScrollPos);
-	};
+    // 	// set state to new scroll position
+    setPrevScrollPos(currentScrollPos);
+  };
 
-	useEffect(() => {
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	});
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
 
-	return (
-		<>
-			<KeepHeight />
-			<Container isLight={isLight} className={`${visibleNav} container nav`}>
-				<div className='innerContainer'>
-					<Link href='/'>
-						<LogoContainer>
-							<Logo />
-						</LogoContainer>
-					</Link>
-					<HamburgerMenu
-						setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
-						hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
-					/>
+  return (
+    <>
+      <KeepHeight />
+      <Container isLight={isLight} className={`${visibleNav} container nav`}>
+        <div className="innerContainer">
+          <Link href="/">
+            <LogoContainer>
+              <Logo />
+            </LogoContainer>
+          </Link>
+          <HamburgerMenu
+            setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
+            hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
+          />
 
-					<NavOptions
-						data={data}
-						hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
-						setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
-					/>
+          <NavOptions
+            data={data}
+            hamburgerMenuActiveStatus={hamburgerMenuActiveStatus}
+            setHamburgerMenuActiveStatus={setHamburgerMenuActiveStatus}
+          />
 
-					<ThemeSwitcher />
-				</div>
-			</Container>
-		</>
-	);
+          <ThemeSwitcher />
+        </div>
+      </Container>
+    </>
+  );
 };
 
 export default Navigation;

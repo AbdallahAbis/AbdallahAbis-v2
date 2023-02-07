@@ -155,38 +155,44 @@ const ObjectContainer = styled.div`
 
 const About = ({ data: { skills, image, contentHtml, blurredImage } }) => {
 	return (
-		<Container id='about'>
-			<InnerContainer>
-				<Title data-animate forwardedAs='h2'>
-					A Little About Me.
-				</Title>
-				<Bio
-					data-animate
-					dangerouslySetInnerHTML={{
-						__html: contentHtml,
-					}}
-				/>
-				<SkillsContainer data-animate>
-					{skills.map((skill, i) => (
-						<Skill key={i}>{skill}</Skill>
-					))}
-				</SkillsContainer>
+    <Container id="about">
+      <InnerContainer>
+        <Title data-animate forwardedAs="h2">
+          A Little About Me.
+        </Title>
+        <Bio
+          data-animate
+          dangerouslySetInnerHTML={{
+            __html: contentHtml,
+          }}
+        />
+        <SkillsContainer data-animate>
+          {skills.map((skill, i) => (
+            <Skill key={i}>{skill}</Skill>
+          ))}
+        </SkillsContainer>
 
-				<ObjectContainer data-animate>
-					<div
-						style={{
-							...blurredImage,
-							height: '100%',
-							width: '100%',
-							filter: 'blur(2rem)',
-							transform: 'scale(1.1)',
-						}}
-					/>
-					<Image layout='fill' quality={100} src={image} />
-				</ObjectContainer>
-			</InnerContainer>
-		</Container>
-	);
+        <ObjectContainer data-animate>
+          <div
+            style={{
+              ...blurredImage,
+              height: "100%",
+              width: "100%",
+              filter: "blur(2rem)",
+              transform: "scale(1.1)",
+            }}
+          />
+          <Image
+            fill
+            sizes="300px"
+            alt="Abdallah Abis"
+            quality={100}
+            src={image}
+          />
+        </ObjectContainer>
+      </InnerContainer>
+    </Container>
+  );
 };
 
 export default About;

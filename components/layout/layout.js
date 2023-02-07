@@ -51,20 +51,20 @@ const Layout = ({ children, data }) => {
 	}, [asPath]);
 
 	return (
-		<>
-			<Head>
-				<title>{`Abdallah Abis | ${sectionForTitle}`}</title>
-			</Head>
-			<GlobalStyles />
-			<Navigation data={data} />
-			<main className='container'>
-				<div className='innerContainer'>{children}</div>
-			</main>
-			<Footer />
-			{location.route !== '/blog/[post]' && <SocialMedia />}
-			<Particles />
-		</>
-	);
+    <>
+      <Head>
+        <title>{`Abdallah Abis | ${sectionForTitle}`}</title>
+      </Head>
+      <GlobalStyles />
+      <Navigation data={data} />
+      <main className="container">
+        <div className="innerContainer">{children}</div>
+      </main>
+      <Footer />
+      {location.route !== "/blog/[post]" && <SocialMedia />}
+      <Particles />
+    </>
+  );
 };
 
 export default Layout;

@@ -1,13 +1,14 @@
-module.exports = {
-	webpack: (config, { isServer }) => {
-		// Fixes npm packages that depend on `fs` module
-		if (!isServer) {
-			config.node = {
-				fs: 'empty',
-			};
-		}
+const { withPlaiceholder } = require("@plaiceholder/next");
 
-		return config;
-	},
-	crossOrigin: 'anonymous',
-};
+module.exports = withPlaiceholder({
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
+    return config;
+  },
+
+  crossOrigin: "anonymous",
+});

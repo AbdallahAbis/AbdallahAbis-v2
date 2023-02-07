@@ -206,47 +206,47 @@ const NavOptions = ({
 	});
 
 	return (
-		<Options
-			noAnimations={noAnimations}
-			className={hamburgerMenuActiveStatus.toString()}
-			elHeight={navHeight && navHeight}
-		>
-			<ul ref={navRef}>
-				{options.map((option, i) => (
-					<li key={i}>
-						<Link
-							href={
-								option.toLowerCase() === 'home'
-									? '/'
-									: option.toLowerCase() === 'blog'
-									? '/blog'
-									: `/#${option.toLowerCase()}`
-							}
-						>
-							<a
-								className={
-									option.toLowerCase() === activeNavLink
-										? 'active navLink'
-										: 'navLink'
-								}
-							>
-								{option.toUpperCase()}
-							</a>
-						</Link>
-					</li>
-				))}
-				<li>
-					<Button
-						noAnimations={noAnimations}
-						className='navLink'
-						href='/#contact'
-					>
-						{button}
-					</Button>
-				</li>
-			</ul>
-		</Options>
-	);
+    <Options
+      noAnimations={noAnimations}
+      className={hamburgerMenuActiveStatus.toString()}
+      elHeight={navHeight && navHeight}
+    >
+      <ul ref={navRef}>
+        {options.map((option, i) => (
+          <li key={i}>
+            <Link
+              href={
+                option.toLowerCase() === "home"
+                  ? "/"
+                  : option.toLowerCase() === "blog"
+                  ? "/blog"
+                  : `/#${option.toLowerCase()}`
+              }
+            >
+              <p
+                className={
+                  option.toLowerCase() === activeNavLink
+                    ? "active navLink"
+                    : "navLink"
+                }
+              >
+                {option.toUpperCase()}
+              </p>
+            </Link>
+          </li>
+        ))}
+        <li>
+          <Button
+            noAnimations={noAnimations}
+            className="navLink"
+            href="/#contact"
+          >
+            {button}
+          </Button>
+        </li>
+      </ul>
+    </Options>
+  );
 };
 
 export default NavOptions;
