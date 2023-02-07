@@ -18,11 +18,11 @@ export default class MyDocument extends Document {
 
     // Step 3: Extract the styles as <style> tags
     const styleTags = sheet.getStyleElement();
-
     // Step 4: Pass styleTags as a prop
     const initialProps = await Document.getInitialProps(ctx);
-
-    return initialProps;
+    console.log(initialProps);
+    
+    return { ...initialProps, styles: styleTags };
   }
 
   render() {
