@@ -1,31 +1,32 @@
 {
-	"name": "abis-abdallah",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev ",
-		"build": "next build",
-		"start": "next start"
-	},
-	"dependencies": {
-		"@plaiceholder/base64": "^1.0.0",
-		"@plaiceholder/css": "^1.0.0",
-		"@plaiceholder/next": "^1.0.0",
-		"gray-matter": "^4.0.2",
-		"next": "10.0.3",
-		"react": "17.0.1",
-		"react-dom": "17.0.1",
-		"react-markdown": "^5.0.3",
-		"react-syntax-highlighter": "^15.4.3",
-		"react-tsparticles": "^1.18.11",
-		"remark": "^13.0.0",
-		"remark-html": "^13.0.1",
-		"remark-unwrap-images": "^2.0.0",
-		"styled-components": "^5.2.1",
-		"typewriter-effect": "^2.17.0"
-	},
-	"devDependencies": {
-		"babel-plugin-inline-react-svg": "^1.1.2",
-		"babel-plugin-styled-components": "^1.12.0"
-	}
+  "name": "abis-abdallah",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@plaiceholder/next": "^2.5.0",
+    "gray-matter": "^4.0.2",
+    "next": "13.1.6",
+    "plaiceholder": "^2.5.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "^8.0.5",
+    "react-syntax-highlighter": "^15.4.3",
+    "react-tsparticles": "^2.8.0",
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.1",
+    "remark-unwrap-images": "^3.0.1",
+    "sharp": "^0.31.3",
+    "styled-components": "^5.2.1",
+    "typewriter-effect": "^2.17.0"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.5.1",
+    "babel-plugin-inline-react-svg": "^2.0.1",
+    "babel-plugin-styled-components": "^2.0.7"
+  }
 }
