@@ -2,6 +2,12 @@
 projects:
   [
     {
+      image: '/projects/koons.jpg',
+      techs: [Gatsby.js, Graphql, TailwindCss, Sanity CMS, Cloudflare workers],
+      description: "Worked with other developers at TouchlessInc to build a new fast website for one of the biggest auto dealers in the US with ~29 locations, I was one of the core team members who built the website from scratch, I built some of the UI and functionality, especially the SRP and VDP pages, and worked on Cloudflare workers, I also worked on the Stock syncing from vAuto to Sanity CMS.",
+      live: 'https://www.koons.com/',
+    },
+    {
       image: '/projects/Akoni.jpg',
       techs: [Gatsby.js, Graphql, Redux, Redux-persist, TailwindCss, Shopify CMS],
       description: "I've had the pleasure to work with <a href='http://standby.pa-th.com/' target='_blank'>PATH</a> on another project which is an online presence for Akoni where they can sell their products, I handled most of the UI, Functionality, and API calls while PATH has handled Shopify CMS config."  ,

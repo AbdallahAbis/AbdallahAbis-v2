@@ -13,10 +13,7 @@ skills: [
 		'Firebase',
 		'Redux-Thunk',
     ]
-image: '/images/abis.png'
+image: '/images/abis.jpeg'
 ---
 
-A JAM Stack web developer who specializes in JavaScript Technologies, Experience in building complete websites with Backend using CMS.<br />
-I have been freelancing and networking with other developers for enough time to be a good designer and developer, in less than 1 year as a freelancer I have worked for +10 clients and worked on +15 projects.<br />
-“Less Is More”, Writing less code leads to clean, functional software that’s easy to maintain over time, I always try to follow this concept and write as little code as possible.
-"Simplicity is Key", Minimalist design lets the content stand out and shine. This is why a simple website design is the first choice I think of when it comes to designing.
+As a dedicated Gatsby and JamStack developer, my expertise extends to building and maintaining state-of-the-art websites using various Headless CMS platforms. My web development journey began as an Affiliate/CPA marketer, leading me to acquire deep skills in technologies like React.js, Gatsby.js, and Next.js. Currently, I am on my way to mastering Cloudflare, including its workers, queues, and other advanced features, to further enhance my ability to create robust, high-performance websites. Specializing in Gatsby, I have a rich portfolio of diverse projects ranging from eCommerce sites to blogs and SaaS platforms. Known for crafting fast, SEO-optimized websites leveraging Gatsby's unique optimizations and extensive plugin library, I am committed to delivering top-tier results that are perfectly tailored to meet your business objectives.

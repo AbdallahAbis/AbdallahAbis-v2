@@ -188,6 +188,7 @@ const About = ({ data: { skills, image, contentHtml, blurredImage } }) => {
             alt="Abdallah Abis"
             quality={100}
             src={image}
+						style={{objectFit: 'cover'}}
           />
         </ObjectContainer>
       </InnerContainer>

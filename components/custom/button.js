@@ -71,15 +71,15 @@ const Button = styled.p`
 `;
 
 const CustomButton = forwardRef((props, ref) => {
-	const { children, href, ...other } = props;
+	const { children, href, tag, ...other } = props;
 	let innerLink;
 	href.indexOf('/') === 0 ? (innerLink = true) : (innerLink = false);
 	return innerLink ? (
 		<Link href={href}>
-			<Button {...other}>{children}</Button>
+			<Button as={tag} {...other}>{children}</Button>
 		</Link>
 	) : (
-		<Button href={href} {...other}>
+		<Button href={href} as={tag} {...other}>
 			{children}
 		</Button>
 	);

@@ -65,7 +65,7 @@ const Contact = ({ data: { subtitle, paragraph, contact } }) => {
 			<p>{paragraph}</p>
 
 			{contact?.map((contactWay, i) => (
-				<Button key={i} href={contactWay?.link}>
+				<Button key={i} href={contactWay?.link} tag='a' target='_blank'>
 					{contactWay?.text}
 				</Button>
 			))}
