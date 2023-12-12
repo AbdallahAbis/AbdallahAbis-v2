@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
@@ -63,6 +64,7 @@ const Layout = ({ children, data }) => {
       <Footer />
       {location.route !== "/blog/[post]" && <SocialMedia />}
       <Particles />
+	  <SpeedInsights />
     </>
   );
 };

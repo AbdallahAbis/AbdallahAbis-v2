@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@plaiceholder/next": "^2.5.0",
+    "@vercel/speed-insights": "^1.0.1",
     "gray-matter": "^4.0.2",
     "next": "13.1.6",
     "plaiceholder": "^2.5.0",
