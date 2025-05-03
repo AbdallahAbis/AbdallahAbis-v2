@@ -1,75 +1,93 @@
 <p align="center">
-  <a href="https://abisabdallah.com">
-    <img alt="Abis" src="./public/brand/logo.png" width="60" />
+  <a href="https://abisabdallah.com" target="_blank">
+    <img alt="Abis Logo" src="./public/brand/logo.png" width="60" />
   </a>
 </p>
-<h1 align="center">
-Abdallah Abis</h1>
+
+<h1 align="center">Abdallah Abis</h1>
+
+<p align="center">
+  <em>Personal Portfolio Website</em>
+</p>
 
 <br />
-<br />
 
-![demo](./public/brand/demo.png)
-
-<br />
-
-<p>This Portfolio was designed and developed by <a href='https://twitter.com/Dev_abis' target="_blank">Abdallah Abis</a> using <a href='https://nextjs.org/' target="_blank">Next.js</a> and hosted on <a href='https://vercel.com//' target="_blank">Vercel</a>.<strong> I hope you like it.</strong></p>
+<p align="center">
+  <img alt="Demo Screenshot" src="./public/brand/demo.png" />
+</p>
 
 <br />
-<br />
 
-🔐
+> This portfolio was thoughtfully designed and developed by [**Abdallah Abis**](https://twitter.com/Dev_abis) using [**Next.js**](https://nextjs.org/), and is proudly hosted on [**Vercel**](https://vercel.com/).  
+> ✨ Feel free to explore, fork, or contribute!
 
-## 💥 FORK IT, BUT PLEASE MENTION ME:exclamation:
+---
 
-🔐
+## 🔁 Forking & Attribution
 
-<br />
-<br />
+You're welcome to fork this portfolio for your own use—but please be kind and **mention me** somewhere in your version. A little credit goes a long way 💜
 
-## 🛠 Installation & Set Up
+---
 
-1.  Check the folder structure on start-here.md
+## 🚀 Getting Started
 
-2.  Fork and/or clone this repo.
+To get this project up and running locally:
 
-    ```sh
-    git clone https://github.com/AbdallahAbis/AbdallahAbis-v2.git
-    ```
+### 1. 📁 Explore the Folder Structure
 
-3.  Install dependencies
+Start with `start-here.md` to understand the project layout and configuration.
 
-    ```sh
-    yarn
-    ```
+### 2. 🧬 Clone the Repository
 
-4.  Start the development server
+```bash
+git clone https://github.com/AbdallahAbis/AbdallahAbis-v2.git
+cd AbdallahAbis-v2
+```
 
-    ```sh
-    yarn dev
-    ```
+### 3. 📦 Install Dependencies
 
-5.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+yarn
+```
 
-## 🚀 Building and Running for Production
+### 4. 🧪 Run the Development Server
 
-Generate a full static production build
+```bash
+yarn dev
+```
 
-```sh
+Visit [http://localhost:3000](http://localhost:3000) in your browser to preview the site.
+
+---
+
+## 🏗 Build for Production
+
+To create an optimized production build:
+
+```bash
 yarn build
 ```
 
-## Learn More
+You can then serve it with any static hosting platform or deploy directly via Vercel.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📚 Learn More
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To dive deeper into the technologies used:
 
-## Deploy on Vercel
+- [Next.js Docs](https://nextjs.org/docs)
+- [Next.js Tutorial](https://nextjs.org/learn)
+- [Next.js GitHub Repo](https://github.com/vercel/next.js)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## ☁️ Deploy to Vercel
+
+Deploy the site in seconds using Vercel:
+
+➡️ [**Deploy Now on Vercel**](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
+
+Or check the [official deployment guide](https://nextjs.org/docs/deployment) for more options.
+
+---
