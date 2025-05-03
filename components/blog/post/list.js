@@ -12,7 +12,7 @@ const List = styled.div`
 			color: var(--color-text);
 		}
 
-		@media ${device.medium} {
+		@media ${device.large} {
 			font-size: 1.6rem;
 		}
 	}

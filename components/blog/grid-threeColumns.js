@@ -18,13 +18,13 @@ const Header = styled.div`
 			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		grid-column: span 2;
 	}
 `;
 
 const SmallerTitle = styled(BlogTitle)`
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		font-size: 2.4rem;
 	}
 `;
@@ -32,7 +32,7 @@ const SmallerDescription = styled(Description)`
 	font-size: 1.6rem;
 	margin-top: 1rem;
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		-webkit-line-clamp: 2;
 		margin-bottom: 4rem;
 	}
@@ -43,7 +43,7 @@ const BlogInfo = styled.div`
 	padding-bottom: 6rem;
 	padding-top: 2rem;
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		padding: 2rem 0;
 	}
 `;

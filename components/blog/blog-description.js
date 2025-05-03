@@ -12,7 +12,7 @@ const Container = styled.p`
 	opacity: 0.8;
 	overflow-y: hidden;
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		margin-top: 1.5rem;
 		line-height: 30px;
 		font-size: 1.8rem;

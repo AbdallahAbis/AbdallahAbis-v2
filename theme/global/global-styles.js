@@ -75,7 +75,7 @@ const GlobalStyles = createGlobalStyle`
 
   main{
       text-align: center;
-       @media ${device.large} {
+       @media ${device.xLarge} {
         text-align: left;
        }
   }
@@ -121,23 +121,27 @@ const GlobalStyles = createGlobalStyle`
 	padding: var(--container-padding);
   }
 .innerContainer{
- 	margin: 0 auto;
-    max-width: 360px;
-	width: 100%;
+ 	  margin: 0 auto;
+    max-width: 90%;
+	  width: 100%;
     
     @media ${device.medium}{
+      max-width: 641px;
+    }
+
+    @media ${device.large}{
       max-width: 768px;
     }
-    @media ${device.large}{
+    @media ${device.xLarge}{
       max-width: 1025px;
     }
-    @media ${device.xLarge}{
+    @media ${device.xxLarge}{
       max-width: 1280px;
     }
-    @media ${device.xxLarge}{
+    @media ${device.huge}{
       max-width: 1441px;
     }
-    @media ${device.huge}{
+    @media ${device.xHuge}{
       max-width: 1921px;
     }
   }

@@ -65,7 +65,7 @@ const Button = styled.p`
     }
   }
 
-  @media ${device.large} {
+  @media ${device.xLarge} {
     margin: 0;
   }
 `;

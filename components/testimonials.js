@@ -12,7 +12,7 @@ import Headline from './custom/headline';
 // Styles Start
 const Container = styled.section`
 	min-height: auto;
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		margin-top: 15rem;
 	}
 `;
@@ -21,7 +21,7 @@ const Title = styled(Headline)`
 		animation: ${slideInBottom} var(--animation-duration)
 			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		justify-content: center;
 	}
 `;
@@ -39,7 +39,7 @@ const OuterContainer = styled.div`
 			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		min-width: 700px;
 		max-width: 700px;
 	}
@@ -72,7 +72,7 @@ const Testimonial = styled.div`
 	align-items: center;
 	flex-direction: column;
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		min-width: 700px;
 		max-width: 700px;
 	}

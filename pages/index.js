@@ -4,7 +4,6 @@ import Contact from '../components/contact';
 import Header from '../components/header';
 import Layout from '../components/layout/layout';
 import Testimonials from '../components/testimonials';
-import { getPlaiceholder } from "plaiceholder";
 import Work from "../components/work";
 import { getContentByPath } from "../lib/queryMarkdown";
 
@@ -47,9 +46,9 @@ export async function getStaticProps() {
   const workData = await getContentByPath("work");
   const contactData = await getContentByPath("contact");
 
-  const imgSrc = pureAboutData?.image;
-  const { img, css: blurredImage } = await getPlaiceholder(imgSrc);
-  const aboutData = { ...pureAboutData, blurredImage };
+  // const imgSrc = pureAboutData?.images[0];
+  // const { img, css: blurredImage } = await getPlaiceholder(imgSrc);
+  const aboutData = { ...pureAboutData };
 
   // this props are returned and can be used by the IndexPage
   return {

@@ -37,7 +37,7 @@ const Container = styled.nav`
 		background-color: var(--color-primary);
 		z-index: 5;
 
-		@media ${device.large} {
+		@media ${device.xLarge} {
 			padding-right: 15rem;
 		}
 	}

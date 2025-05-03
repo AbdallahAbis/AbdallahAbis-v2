@@ -46,7 +46,7 @@ const Options = styled.div`
 			&:last-child {
 				padding-bottom: 4rem;
 			}
-			@media ${device.large} {
+			@media ${device.xLarge} {
 				&:nth-child(1) {
 					animation: ${({ noAnimations }) =>
 						noAnimations
@@ -102,7 +102,7 @@ const Options = styled.div`
 	}
 
 	/* Media Queries */
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		max-height: unset;
 		position: static;
 		background-color: unset;
@@ -148,7 +148,7 @@ const Options = styled.div`
 `;
 
 const Button = styled(CustomButton)`
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		animation: ${({ noAnimations }) =>
 			noAnimations
 				? css`

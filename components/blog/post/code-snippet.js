@@ -12,7 +12,7 @@ const Code = styled(SyntaxHighlighter)`
 	margin-bottom: 1.5rem !important;
 	border-radius: 0.5rem;
 	border: 1px solid var(--color-primary-diff-3);
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		margin-bottom: 2.5rem !important;
 	}
 `;

@@ -25,10 +25,10 @@ const Container = styled.div`
 	top: 33%;
 	animation: ${slideInTop} 0.5s 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
-	@media ${device.medium} {
+	@media ${device.large} {
 		left: 46%;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		right: 0;
 		left: unset;
 		transform: translateY(-50%);

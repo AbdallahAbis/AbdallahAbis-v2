@@ -26,7 +26,7 @@ const Container = styled.div`
 			font-family: var(--font-code);
 		}
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		margin-top: 0;
 		margin-bottom: 2rem;
 	}

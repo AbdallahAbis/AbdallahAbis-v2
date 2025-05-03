@@ -15,12 +15,12 @@ const Container = styled.section`
 	grid-row-gap: 8rem;
 	padding: 3rem 0;
 
-	@media ${device.medium} {
+	@media ${device.large} {
 		grid-template-columns: repeat(2, 1fr);
 		grid-column-gap: 5rem;
 		padding: 5rem 0;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		grid-template-columns: repeat(6, 1fr);
 		grid-column-gap: 8rem;
 		padding: 8rem 0;

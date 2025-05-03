@@ -10,7 +10,7 @@ const Title = styled.h1`
 
 	margin: 2rem auto 5rem auto;
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		font-size: 4rem;
 		line-height: 4.9rem;
 	}

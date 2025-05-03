@@ -23,7 +23,7 @@ const Container = styled.h1`
 				line-height: 0px;
 				cursor: default;
 
-				@media ${device.medium} {
+				@media ${device.large} {
 					height: 56px;
 					line-height: 56px;
 				}
@@ -38,7 +38,7 @@ const Container = styled.h1`
 				span {
 					display: inline-block;
 					z-index: -10;
-					@media ${device.medium} {
+					@media ${device.large} {
 						height: 57px;
 						line-height: 57px;
 					}
@@ -60,11 +60,11 @@ const Container = styled.h1`
 		margin-bottom: 2rem;
 	}
 
-	@media ${device.medium} {
+	@media ${device.large} {
 		font-size: 5rem;
 		margin-bottom: 4rem;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		font-size: 5.5rem;
 		line-height: 6.2rem;
 		justify-content: flex-start;

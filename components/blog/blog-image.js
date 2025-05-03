@@ -20,7 +20,7 @@ const Container = styled.div`
 		object-fit: cover;
 	}
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		max-height: 100%;
 	}
 

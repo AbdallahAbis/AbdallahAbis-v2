@@ -31,11 +31,11 @@ const Container = styled.div`
 			padding: 9px;
 			border: solid 1px var(--color-text);
 			background-color: black;
-			@media ${device.large} {
+			@media ${device.xLarge} {
 				width: 100%;
 				height: 28rem;
 			}
-			@media ${device.xLarge} {
+			@media ${device.xxLarge} {
 				width: 65%;
 				height: 28rem;
 			}
@@ -178,13 +178,13 @@ const Container = styled.div`
 			margin: 0 auto;
 			border-radius: 0px 0px 6px 6px;
 
-			@media ${device.large} {
+			@media ${device.xLarge} {
 				width: 110%;
 				position: absolute;
 				left: 50%;
 				transform: translateX(-50%);
 			}
-			@media ${device.xLarge} {
+			@media ${device.xxLarge} {
 				width: 75%;
 			}
 		}

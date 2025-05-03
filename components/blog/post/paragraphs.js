@@ -5,7 +5,7 @@ const Paragraph = styled.p`
 	opacity: 0.8;
 	margin-bottom: 1.5rem;
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		margin-bottom: 2.5rem;
 	}
 `;

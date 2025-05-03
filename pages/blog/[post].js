@@ -33,7 +33,7 @@ const Container = styled.section`
 			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		padding-top: 10rem;
 		max-width: 751px;
 	}
@@ -46,11 +46,11 @@ const Content = styled(ReactMarkdown)`
 	ul {
 	}
 
-	@media ${device.medium} {
+	@media ${device.large} {
 		font-size: 1.6rem;
 		line-height: 2.9rem;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		font-size: 1.8rem;
 		line-height: 3.2rem;
 	}
@@ -90,13 +90,13 @@ const OtherBlogsContainer = styled.div`
 	grid-row-gap: 8rem;
 	padding-bottom: 10rem;
 
-	@media ${device.medium} {
+	@media ${device.large} {
 		grid-template-columns: repeat(2, 1fr);
 		grid-column-gap: 5rem;
 		padding: 5rem 0;
 		padding-bottom: 15rem;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		grid-template-columns: repeat(6, 1fr);
 		grid-column-gap: 8rem;
 	}

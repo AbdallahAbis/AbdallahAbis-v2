@@ -2,12 +2,14 @@
 const device = {
   // Small screens - MOBILE FIRST
   xSmall: `only screen and (max-width: 20em)`, // max-width 320px, xSmall screens
+  xSmallToSmall: `only screen and (min-width: 20em)`, // min-width 321px, small to medium screens
   small: `only screen and (min-width: 40.063em)`, // min-width 641px, small screens
   medium: `only screen and (min-width: 48em)`, // min-width 768px, medium screens
   large: `only screen and (min-width: 64.063em)`, // min-width 1025px, large screens
   xLarge: `only screen and (min-width: 80em)`, // min-width 1280px, xLarge screens
   xxLarge: `only screen and (min-width: 90.063em)`, // min-width 1441px, xLarge screens
   huge: `only screen and (min-width: 120.063em)`, // min-width 1921px, xxLarge screens
+  xHuge: `only screen and (min-width: 160em)`, // min-width 2560px, xHuge screens
 }
 
 export default device

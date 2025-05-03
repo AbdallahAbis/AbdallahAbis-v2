@@ -18,7 +18,7 @@ const Container = styled.div`
 	align-items: center;
 	flex-direction: column;
 
-	@media ${device.medium} {
+	@media ${device.large} {
 		flex-direction: row;
 	}
 

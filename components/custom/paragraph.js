@@ -12,11 +12,11 @@ const Container = styled.p`
 	@media ${device.xSmall} {
 		font-size: 1.5rem;
 	}
-	@media ${device.medium} {
+	@media ${device.huge} {
 		max-width: 85%;
 		margin: 0 auto;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		margin-left: 0;
 	}
 `;

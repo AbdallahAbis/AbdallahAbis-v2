@@ -31,10 +31,10 @@ const Title = styled(Headline)`
 	font-size: 4rem;
 	margin-bottom: 0;
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		font-size: 5rem;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		justify-content: center;
 	}
 `;

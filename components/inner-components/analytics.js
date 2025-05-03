@@ -33,12 +33,12 @@ const Container = styled.div`
 		&:not(:last-child) {
 			margin-bottom: 1rem;
 
-			@media ${device.medium} {
+			@media ${device.large} {
 				margin-bottom: 0;
 				margin-right: 1rem;
 			}
 		}
-		@media ${device.large} {
+		@media ${device.xLarge} {
 			&:nth-child(1) {
 				animation: ${slideInLeftBlurred} 0.3s cubic-bezier(0.23, 1, 0.32, 1)
 					both;
@@ -83,24 +83,24 @@ const Container = styled.div`
 			font-size: 1.3rem;
 		}
 
-		@media ${device.medium} {
+		@media ${device.large} {
 			width: 33.33333%;
 		}
 
-		@media ${device.large} {
+		@media ${device.xLarge} {
 			padding: 4rem 0;
 		}
 	}
 
-	@media ${device.medium} {
+	@media ${device.large} {
 		flex-direction: row;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		grid-column: 1 / span 2;
 		align-self: end;
 		margin: 0 auto 2rem auto;
 	}
-	@media ${device.xLarge} {
+	@media ${device.xxLarge} {
 		margin: 0 auto 2rem auto;
 	}
 `;

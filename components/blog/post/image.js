@@ -12,10 +12,10 @@ const ImageContainer = styled.div`
 		object-fit: cover;
 		border-radius: 5px;
 	}
-	@media ${device.medium} {
+	@media ${device.large} {
 		height: 300px;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		height: 300px;
 		margin-bottom: 2.5rem;
 	}

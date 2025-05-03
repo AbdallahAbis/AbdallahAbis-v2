@@ -24,30 +24,30 @@ const Container = styled.section`
 const InnerContainer = styled.div`
 	height: 100%;
 	padding-top: 5rem;
-	@media ${device.medium} {
+	@media ${device.large} {
 		max-width: 62rem;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		display: grid;
-		grid-template-columns: fit-content(59rem) 1fr;
-		grid-row-gap: 3rem;
+		grid-template-columns: 1.5fr 1fr;
+		grid-gap: 3rem;
 		max-width: 1025px;
 	}
-	@media ${device.xLarge} {
+	@media ${device.xxLarge} {
 		grid-template-columns: 1fr 1fr;
 		max-width: 1280px;
 		min-height: calc(100vh - var(--nav));
 		padding-top: 5rem;
 	}
-	@media ${device.xxLarge} {
+	@media ${device.huge} {
 		max-width: 1441px;
 	}
-	@media ${device.huge} {
+	@media ${device.xHuge} {
 		max-width: 1921px;
 	}
 `;
 const ContentContainer = styled.div`
-	@media ${device.large} {
+	@media ${device.xxLarge} {
 		grid-column: 1;
 		margin-top: 8rem;
 	}
@@ -57,7 +57,7 @@ const Title = styled(Headline)`
 	animation: ${slideInBottom} 0.5s 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 		both;
 
-	@media ${device.large} {
+	@media ${device.xxLarge} {
 		animation-delay: ${({ noAnimations }) => (noAnimations ? '0s' : ' 2.7s')};
 		width: 85%;
 	}
@@ -68,7 +68,7 @@ const Description = styled(Paragraph)`
 	font-family: var(--font-body);
 	margin: 0 auto 6rem;
 
-	@media ${device.large} {
+	@media ${device.xxLarge} {
 		animation-delay: ${({ noAnimations }) => (noAnimations ? '0.2s' : '3s')};
 		margin-left: 0;
 	}
@@ -76,7 +76,7 @@ const Description = styled(Paragraph)`
 const ComputerContainer = styled.div`
 	display: none;
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		display: block;
 		animation: ${tiltInBottomRight} 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 			both;
@@ -188,7 +188,7 @@ const Button = styled(CustomButton)`
 			}
 		}
 	}
-	@media ${device.large} {
+	@media ${device.xxLarge} {
 		margin: 0;
 		animation-delay: ${({ noAnimations }) => (noAnimations ? '0.4s' : '3.3s')};
 	}

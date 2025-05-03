@@ -14,11 +14,11 @@ const Title = styled.a`
 		opacity: 0.8;
 	}
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		line-height: 38px;
 		font-size: 2.8rem;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		justify-content: center;
 	}
 `;

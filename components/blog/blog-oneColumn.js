@@ -21,10 +21,10 @@ const Header = styled.div`
 			cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 
-	@media ${device.medium} {
+	@media ${device.large} {
 		grid-auto-rows: 30rem auto;
 	}
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		grid-template-columns: 2fr 1fr;
 		grid-auto-rows: 40rem auto;
 		gap: 3rem;
@@ -36,7 +36,7 @@ const BlogInfo = styled.div`
 	padding-bottom: 6rem;
 	padding-top: 2rem;
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		grid-column: 2;
 		padding: 2rem 0;
 	}

@@ -83,7 +83,7 @@ const Hamburger = styled.div`
 	}
 
 	/* Media Queries */
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		display: none;
 	}
 `;

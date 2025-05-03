@@ -37,7 +37,7 @@ export const SocialContainer = styled.div`
 		}
 	}
 
-	@media ${device.large} {
+	@media ${device.xLarge} {
 		display: block;
 	}
 `;
