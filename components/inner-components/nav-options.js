@@ -209,7 +209,7 @@ const NavOptions = ({
     <Options
       noAnimations={noAnimations}
       className={hamburgerMenuActiveStatus.toString()}
-      elHeight={navHeight && navHeight}
+      elHeight={navHeight}
     >
       <ul ref={navRef}>
         {options.map((option, i) => (
